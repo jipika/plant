@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/discern/discern",
+    "pages/news/news",
+    "pages/member/member",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#9E9E9E",
+    "selectedColor": "",
+    "backgroundColor": "",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的花匠",
+        "iconPath": "pages/image/img_tab_device.png",
+        "selectedIconPath": "pages/image/easyicon_net_32.png"
+      },
+      {
+        "pagePath": "pages/discern/discern",
+        "text": "植物识别",
+        "iconPath": "pages/image/sousuo_huise.png",
+        "selectedIconPath": "pages/image/sousuo_liang.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "植物信息",
+        "iconPath": "pages/image/shujuku_huise.png",
+        "selectedIconPath": "pages/image/shujuku_zhengchang.png"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "个人中心",
+        "iconPath": "pages/image/easyicon_net_34.png",
+        "selectedIconPath": "pages/image/img_tab_user_pressed.png"
+      }
+    ]
+  },
+
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

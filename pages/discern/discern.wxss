@@ -1,0 +1,18 @@
+/* pages/discern/discern.wxss */
+.camera > image {
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300rpx;
+  height: 300rpx;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+view > text {
+  display: block;
+  text-align: center;
+  color: #a0a1a2;
+}

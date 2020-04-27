@@ -1,0 +1,3 @@
+<!--index.wxml-->
+<component-tag-title title-text="我的智能花匠" title-up="{{false}}"></component-tag-title>
+<text class selectable="false" space="false" decode="false">123</text>

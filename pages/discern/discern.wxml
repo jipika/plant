@@ -1,0 +1,14 @@
+<!--pages/discern/discern.wxml-->
+<component-tag-title title-text="植物识别" title-up="{{true}}" title-back="{{true}}"></component-tag-title>
+<view class="camera" bindtap="customMethod">
+  <image
+    src="http://qingchun.hongquelin.com/zhinenghuajiang/image/pick_camera.png"
+    mode="aspectFill"
+    lazy-load="false"
+    binderror
+    bindload
+  />
+</view>
+<view>
+  <text>选择图片进行识别</text>
+</view>

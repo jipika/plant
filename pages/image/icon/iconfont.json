@@ -1,0 +1,72 @@
+{
+  "id": "1780174",
+  "name": "植物识别",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3248560",
+      "name": "感叹号",
+      "font_class": "gantanhao",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "10707278",
+      "name": "箭头 左 left",
+      "font_class": "jiantouzuo",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "12961553",
+      "name": "问号",
+      "font_class": "icon-test",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "14095315",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e78e",
+      "unicode_decimal": 59278
+    },
+    {
+      "icon_id": "14303333",
+      "name": "账号",
+      "font_class": "zhanghao",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "14303334",
+      "name": "查询",
+      "font_class": "chaxun",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "14303337",
+      "name": "新增",
+      "font_class": "xinzeng",
+      "unicode": "e74b",
+      "unicode_decimal": 59211
+    },
+    {
+      "icon_id": "14303339",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e74c",
+      "unicode_decimal": 59212
+    },
+    {
+      "icon_id": "14303347",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e74d",
+      "unicode_decimal": 59213
+    }
+  ]
+}

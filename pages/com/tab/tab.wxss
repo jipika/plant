@@ -1,0 +1,29 @@
+@import '/pages/image/icon/iconfont.wxss';
+
+.titleBox {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+.bgc {
+  background-color: #edf1f2;
+}
+.title {
+  color: #a0a1a2;
+  font-size: 18px;
+  text-align: center;
+  background-color: #edf1f2;
+}
+.tbgc {
+  background-color: #edf1f2;
+}
+.titleUp {
+  position: fixed;
+  top: 0;
+  left: 10px;
+}
+.titleBack {
+  position: fixed;
+  top: 0;
+  left: 10px;
+}

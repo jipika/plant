@@ -1,0 +1,4 @@
+/* pages/detail/detail.wxss */
+.font {
+  color: #a0a1a2;
+}
