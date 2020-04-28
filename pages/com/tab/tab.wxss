@@ -4,6 +4,7 @@
   position: fixed;
   width: 100%;
   z-index: 999;
+  background-color: #edf1f2;
 }
 .bgc {
   background-color: #edf1f2;
@@ -26,4 +27,10 @@
   position: fixed;
   top: 0;
   left: 10px;
+}
+.c {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-color: #edf1f2;
 }

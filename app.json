@@ -4,7 +4,8 @@
     "pages/discern/discern",
     "pages/news/news",
     "pages/member/member",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/detailPant/detailPant"
   ],
   "window": {
     "backgroundTextStyle": "light",

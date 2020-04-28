@@ -73,9 +73,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/detail/detail",
-					"pathName": "pages/detail/detail",
+					"id": 2,
+					"name": "pages/detailPant/detailPant",
+					"pathName": "pages/detailPant/detailPant",
+					"query": "",
 					"scene": null
 				}
 			]

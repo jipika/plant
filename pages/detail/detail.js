@@ -12,7 +12,16 @@ Page({
     activeName: '',
     imgDetail: ''
   },
+  goDetail() {
+    wx.navigateTo({
+      url: '../detailPant/detailPant',
+      success: (result) => {
+        console.log(result)
+      }
+    })
+  },
   onChange(e) {
+    var that = this
     wx.request({
       url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${e.currentTarget.dataset.name}`,
       data: {},
@@ -23,7 +32,9 @@ Page({
         console.log(res)
         if (res.data.code == 200) {
           console.log(res.data.msg[0])
-          this.setData({
+
+          getApp().globalData.detailPant = res.data.msg[0]
+          that.setData({
             activeName: e.detail,
             imgDetail: res.data.msg[0]
           })

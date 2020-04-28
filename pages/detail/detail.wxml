@@ -27,8 +27,16 @@
         decode="false"
       >{{item.baike_info.description ? item.baike_info.description : '暂时没有植物简介哦~'}}</text>
       <view class="imgBox">
-        <view class="hr">
-          <image class="detailImg" src="{{imgDetail.image}}" lazy-load="false" binderror bindload />
+        <view class="hr" bindtap="goDetail">
+          <van-image
+            round
+            width="5rem"
+            height="5rem"
+            src="{{imgDetail.image}}"
+            lazy-load="true"
+            binderror
+            bindload
+          />
           <text class="b" selectable="false" space="false" decode="false">详细信息</text>
         </view>
       </view>

@@ -1,15 +1,21 @@
-<view class="bgc" style="height: {{ statusBarHeight + gap }}px;"></view>
-<view class="titleBox" style="top: {{ statusBarHeight + gap + 5 }}px">
-  <view class="title">
-    <text class="titleText" selectable="false" space="false" decode="false">{{ titleText }}</text>
-    <view hidden="{{titleUp}}" class="titleUp" style="top: {{ statusBarHeight + gap + 5 }}px;">
-      <text bindtap="customMethod" class="iconfont icon-xinzeng"></text>
-    </view>
-    <view hidden="{{titleBack}}" class="titleBack" style="top: {{ statusBarHeight + gap + 5 }}px;">
-      <text bindtap="comeBack" class="iconfont icon-jiantouzuo"></text>
+<view class="c">
+  <view class="bgc" style="height: {{ statusBarHeight + gap }}px;"></view>
+  <view class="titleBox" style="top: {{ statusBarHeight + gap + 5 }}px">
+    <view class="title">
+      <text class="titleText" selectable="false" space="false" decode="false">{{ titleText }}</text>
+      <view hidden="{{titleUp}}" class="titleUp" style="top: {{ statusBarHeight + gap + 5 }}px;">
+        <text bindtap="customMethod" class="iconfont icon-xinzeng"></text>
+      </view>
+      <view
+        hidden="{{titleBack}}"
+        class="titleBack"
+        style="top: {{ statusBarHeight + gap + 5 }}px;"
+      >
+        <text bindtap="comeBack" class="iconfont icon-jiantouzuo"></text>
+      </view>
     </view>
   </view>
+  <view class="tbgc" style="height: {{ rect }}px;"></view>
 </view>
-<view class="tbgc" style="height: {{ rect }}px;"></view>
 
 <slot></slot>

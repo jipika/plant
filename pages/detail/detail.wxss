@@ -14,7 +14,8 @@
   float: right;
 }
 .b {
-  padding: 0 8px;
+  margin-left: 12px;
+  display: block;
 }
 .van-cell {
   background-color: #edf1f2 !important;

@@ -1,0 +1,45 @@
+<!--pages/detailPant/detailPant.wxml-->
+<component-tag-title title-text="植物详细信息" title-back="{{false}}"></component-tag-title>
+<image class src="{{getList.image}}" style="width: 100%" lazy-load="false" binderror bindload />
+<text class selectable="false" space="false" decode="false">{{getList.name}}</text>
+
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.yuanchandi}}">原产地</view>
+  <view class="tr_r" wx:if="{{getList.yuanchandi}}">{{getList.yuanchandi}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.shengchandi}}">生产地</view>
+  <view class="tr_r">{{getList.yuanchandi}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.leixing}}">类型</view>
+  <view class="tr_r" wx:if="{{getList.leixing}}">{{getList.leixing}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.huaqi}}">花期</view>
+  <view class="tr_r" wx:if="{{getList.huaqi}}">{{getList.huaqi}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.yanse}}">颜色</view>
+  <view class="tr_r" wx:if="{{getList.yanse}}">{{getList.yanse}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.chicunguige}}">尺寸规格</view>
+  <view class="tr_r" wx:if="{{getList.chicunguige}}">{{getList.chicunguige}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.turang}}">土壤</view>
+  <view class="tr_r" wx:if="{{getList.turang}}">{{getList.turang}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.guangzhao}}">光照</view>
+  <view class="tr_r" wx:if="{{getList.guangzhao}}">{{getList.guangzhao}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.shifei}}">施肥</view>
+  <view class="tr_r" wx:if="{{getList.shifei}}">{{getList.shifei}}</view>
+</view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.xiujian}}">修剪</view>
+  <view class="tr_r" wx:if="{{getList.xiujian}}">{{getList.xiujian}}</view>
+</view>

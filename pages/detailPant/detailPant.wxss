@@ -1,0 +1,40 @@
+/* pages/detailPant/detailPant.wxss */
+.table {
+  /* display: flex;
+  justify-content: flex-start; */
+}
+.tr {
+  border-top: 1px solid #cccccc;
+  display: flex;
+  justify-content: flex-start;
+}
+.tr:last-child {
+  border-bottom: 1px solid #cccccc;
+}
+.tr_l {
+  padding: 20px;
+  width: 30%;
+  border-right: 1px solid #cccccc;
+}
+.tr_r {
+  width: 70%;
+  padding: 20px;
+}
+text {
+  display: block;
+  line-height: 40px;
+  text-align: center;
+}
+/* .td {
+  padding: 20px;
+  border-bottom: 1px solid #000;
+}
+.tr {
+  width: 30%;
+  border-right: 1px solid #000;
+  border-top: 1px solid #000;
+}
+.tr1 {
+  width: 70%;
+  border-top: 1px solid #000;
+} */

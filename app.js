@@ -54,6 +54,7 @@ App({
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
     rect: null,
     detail: null,
-    imgPath: null
+    imgPath: null,
+    detailPant: null
   }
 })
