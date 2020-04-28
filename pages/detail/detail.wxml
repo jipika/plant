@@ -1,28 +1,37 @@
 <!--pages/detail/detail.wxml-->
 <component-tag-title title-text="植物识别" title-up="{{true}}" title-back="{{false}}"></component-tag-title>
 <view>
-  <image src="{{imgPath}}" style="width: 100%" wx:if="{{imgPath}}" />
+  <image class="a" src="{{imgPath}}" style="width: 100%" wx:if="{{imgPath}}" />
 </view>
-<van-collapse
-  wx:for="{{detail}}"
-  wx:for-item="item"
-  wx:for-index="index"
-  wx:key="index"
-  value="{{activeName}}"
-  bind:change="onChange"
-  accordion
-  data-name="{{item.name}}"
-  custom-class="bgc"
->
-  <van-collapse-item
-    label="相似率:{{item.score}}"
-    content-class="font"
-    title="{{item.name}}"
-    name="{{index}}"
+<view class="maxBox">
+  <van-collapse
+    wx:for="{{detail}}"
+    wx:for-item="item"
+    wx:for-index="index"
+    wx:key="index"
+    value="{{activeName}}"
+    bind:change="onChange"
+    accordion
+    data-name="{{item.name}}"
   >
-    {{imgDetail.name}}
-    <text class selectable="false" space="false" decode="false">{{imgDetail.yuanchandi}}</text>
-    <text class selectable="false" space="false" decode="false">{{imgDetail.shengchandi}}</text>
-    <image class src="{{imgDetail.image}}" mode="aspectFit" lazy-load="false" binderror bindload />
-  </van-collapse-item>
-</van-collapse>
+    <van-collapse-item
+      label="相似度:{{item.score}}"
+      content-class="font"
+      title="{{item.name}}"
+      name="{{index}}"
+    >
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{item.baike_info.description ? item.baike_info.description : '暂时没有植物简介哦~'}}</text>
+      <view class="imgBox">
+        <view class="hr">
+          <image class="detailImg" src="{{imgDetail.image}}" lazy-load="false" binderror bindload />
+          <text class="b" selectable="false" space="false" decode="false">详细信息</text>
+        </view>
+      </view>
+    </van-collapse-item>
+  </van-collapse>
+</view>

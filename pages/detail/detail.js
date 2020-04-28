@@ -4,9 +4,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: '',
+    detail: [
+      { score: '80%', name: '常春藤' },
+      { score: '7%', name: '洋常春藤' }
+    ],
     imgPath: '',
-    plantDetail: '',
     activeName: '',
     imgDetail: ''
   },
@@ -20,6 +22,7 @@ Page({
       success: (res) => {
         console.log(res)
         if (res.data.code == 200) {
+          console.log(res.data.msg[0])
           this.setData({
             activeName: e.detail,
             imgDetail: res.data.msg[0]

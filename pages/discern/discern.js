@@ -35,7 +35,8 @@ Page({
                   wx.request({
                     url: `https://aip.baidubce.com/rest/2.0/image-classify/v1/plant?access_token=${res.data.access_token}`,
                     data: {
-                      image
+                      image,
+                      baike_num: 5
                     },
                     header: {
                       'content-type': 'application/x-www-form-urlencoded'
@@ -47,7 +48,7 @@ Page({
                       console.log(res.data.result)
                       // 保存到全局变量中
                       res.data.result.forEach((item) => {
-                        item.score = Math.round(item.score * 100) + '%'
+                        item.score = (item.score * 100).toFixed(2) + '%'
                       })
 
                       app.globalData.detail = res.data.result

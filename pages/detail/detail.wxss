@@ -1,4 +1,21 @@
 /* pages/detail/detail.wxss */
 .font {
   color: #a0a1a2;
+  background-color: #edf1f2 !important;
+}
+
+.detailImg {
+  border-radius: 50%;
+  display: block;
+  height: 60px;
+  width: 70px;
+}
+.hr {
+  float: right;
+}
+.b {
+  padding: 0 8px;
+}
+.van-cell {
+  background-color: #edf1f2 !important;
 }
