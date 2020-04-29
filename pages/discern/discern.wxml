@@ -1,5 +1,6 @@
 <!--pages/discern/discern.wxml-->
 <component-tag-title title-text="植物识别" title-up="{{true}}" title-back="{{true}}"></component-tag-title>
+<view style="height: 96px"></view>
 <view class="camera" bindtap="customMethod">
   <image
     src="http://qingchun.hongquelin.com/zhinenghuajiang/image/pick_camera.png"

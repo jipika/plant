@@ -1,2 +1,53 @@
 <!--pages/news/news.wxml-->
-<text>pages/news/news.wxml</text>
+<van-nav-bar title="植物信息" safe-area-inset-top fixed placeholder border="{{false}}" />
+
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  bind:cancel="onCancel"
+  bind:change="onChange"
+  shape="round"
+></van-search>
+<image
+  bindtap="gotoDetail"
+  class="tab"
+  src="/pages/image/img_advsearch_star.png"
+  lazy-load="true"
+  binderror
+  bindload
+  wx:if="{{!searchResultDatas.length}}"
+/>
+<van-divider
+  customStyle="color: #A0A1A2;border-color: #A2A3A2;font-size: 14px;"
+  contentPosition="center"
+  wx:if="{{!searchResultDatas.length}}"
+>植物人气榜Top10</van-divider>
+<!-- 人气榜 -->
+<view wx:if="{{!searchResultDatas.length}}" class="pantTop">
+  <view
+    wx:for="{{pantTop}}"
+    class="box"
+    bindtap="chooseSearchResultAction"
+    data-id="{{pantTop[index].pid}}"
+  >
+    <image class="img" src="{{item.image}}" lazy-load="true" binderror bindload />
+    <text class selectable="false" space="false" decode="false">{{item.name}}</text>
+  </view>
+</view>
+
+<!-- 搜索时内容 -->
+<view wx:if="{{searchResultDatas.length > 0}}" class="search-content-body">
+  <block wx:for="{{searchData}}" wx:key="*this">
+    <view class="search-result-item">
+      <high-light
+        class="result-item"
+        sear="{{searchData[index]}}"
+        bindtap="chooseSearchResultAction"
+        data-id="{{searchResultDatas[index].pid}}"
+      ></high-light>
+    </view>
+    <view class="tup">
+      <image class="img" src="{{item.image}}" lazy-load binderror bindload />
+    </view>
+  </block>
+</view>

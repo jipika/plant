@@ -1,5 +1,6 @@
 <!--pages/detail/detail.wxml-->
 <component-tag-title title-text="植物识别" title-up="{{true}}" title-back="{{false}}"></component-tag-title>
+<view style="height: 96px"></view>
 <view>
   <image class="a" src="{{imgPath}}" style="width: 100%" wx:if="{{imgPath}}" />
 </view>

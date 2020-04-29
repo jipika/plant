@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "component-tag-title": "/pages/com/tab/tab",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-card": "@vant/weapp/card/index",
+    "high-light": "/pages/com/highlight/highlight",
+    "van-divider": "@vant/weapp/divider/index"
+  }
 }

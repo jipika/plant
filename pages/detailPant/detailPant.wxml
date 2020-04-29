@@ -1,5 +1,6 @@
 <!--pages/detailPant/detailPant.wxml-->
 <component-tag-title title-text="植物详细信息" title-back="{{false}}"></component-tag-title>
+<view style="height: 96px"></view>
 <image class src="{{getList.image}}" style="width: 100%" lazy-load="false" binderror bindload />
 <text class selectable="false" space="false" decode="false">{{getList.name}}</text>
 

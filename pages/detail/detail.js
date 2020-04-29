@@ -10,7 +10,8 @@ Page({
     ],
     imgPath: '',
     activeName: '',
-    imgDetail: ''
+    imgDetail: '',
+    pid: ''
   },
   goDetail() {
     wx.navigateTo({
@@ -22,8 +23,24 @@ Page({
   },
   onChange(e) {
     var that = this
+    console.log(e.currentTarget.dataset.name)
     wx.request({
       url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${e.currentTarget.dataset.name}`,
+      data: {},
+      header: { 'content-type': 'application/json' },
+      method: 'post',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        console.log(res.data.msg[0].pid)
+        that.setData({
+          pid: res.data.msg[0].pid
+        })
+      }
+    })
+
+    wx.request({
+      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${that.data.pid}`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'POST',

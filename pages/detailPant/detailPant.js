@@ -5,28 +5,38 @@ Page({
    */
   data: {
     getList: '',
-    height: ''
+    height: '',
+    pid: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    console.log(options.pid)
+    if (options.pid) {
+      wx.request({
+        url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
+        data: {},
+        header: { 'content-type': 'application/json' },
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          console.log(res)
+          that.setData({
+            getList: res.data.msg[0]
+          })
+        }
+      })
+    }
     const getList = getApp().globalData.detailPant
     console.log(getList)
-    var that = this
+
     this.setData({
       getList
     })
-    let query = wx.createSelectorQuery()
-    var a = query
-      .selectAll('#ht')
-      .boundingClientRect(function (rect) {
-        return rect.height
-        console.log(rect.height)
-      })
-      .exec()
-    console.log(a)
   },
 
   /**
