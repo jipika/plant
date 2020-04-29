@@ -43,3 +43,7 @@
   <view class="tr_l" wx:if="{{getList.xiujian}}">修剪</view>
   <view class="tr_r" wx:if="{{getList.xiujian}}">{{getList.xiujian}}</view>
 </view>
+<view class="tr">
+  <view class="tr_l" wx:if="{{getList.jianjie}}">简介</view>
+  <view class="tr_r" wx:if="{{getList.jianjie}}">{{getList.jianjie}}</view>
+</view>
