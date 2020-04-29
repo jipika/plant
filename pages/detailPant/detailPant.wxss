@@ -1,8 +1,5 @@
 /* pages/detailPant/detailPant.wxss */
-.table {
-  /* display: flex;
-  justify-content: flex-start; */
-}
+
 .tr {
   border-top: 1px solid #cccccc;
   display: flex;
@@ -25,16 +22,3 @@ text {
   line-height: 40px;
   text-align: center;
 }
-/* .td {
-  padding: 20px;
-  border-bottom: 1px solid #000;
-}
-.tr {
-  width: 30%;
-  border-right: 1px solid #000;
-  border-top: 1px solid #000;
-}
-.tr1 {
-  width: 70%;
-  border-top: 1px solid #000;
-} */

@@ -1,0 +1,19 @@
+<view class="xiang">
+  <view class="ding">
+    <view class="box">
+      <text class="bie" selectable="false" space="false" decode="false">别名:</text>
+      <text
+        wx:for="{{searchArray}}"
+        wx:key="*this"
+        class="{{item !== keyName ? 'normal' : 'highlight' }}"
+      >{{item}}</text>
+    </view>
+    <text class="xue" selectable="false" space="false" decode="false">学名:</text>
+
+    <text
+      wx:for="{{xuemArray}}"
+      wx:key="*this"
+      class="{{item !== keyName ? 'normal' : 'highlight' }}"
+    >{{item}}</text>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+.highlight {
+  margin-top: 10px;
+  color: green;
+  order: 0;
+}
+.normal {
+  margin-top: 10px;
+  color: #484848;
+  order: 1;
+}
+.box {
+  display: flex;
+  justify-content: start;
+}
+.bie {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.xue {
+  margin-left: 20px;
+}
+.ding {
+  position: absolute;
+  left: 90px;
+}
+.xiang {
+  position: relative;
+  top: 20px;
+}
+text {
+  font-size: 14px;
+  color: #a0a1a2;
+}
