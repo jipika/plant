@@ -7,48 +7,47 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    slideButtons: '',
+    token: '5a219217b508118ce2f9f809ff09cde5',
+    equipment: ''
   },
-  //事件处理函数
-  bindViewTap: function() {
+  // 事件处理函数
+  goSurvey: function () {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '/pages/survey/survey'
     })
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+    var that = this
+    console.log(this.data.token)
+
+    this.setData({
+      slideButtons: [
+        {
+          src: '/pages/image/aixin.svg'
+        },
+        {
+          src: '/pages/image/shoucang.svg'
+        },
+        {
+          src: '/pages/image/shanchu.svg'
+        }
+      ]
+    })
+    wx.request({
+      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=geren_liebiao&app=10000&token=${that.data.token}`,
+      data: {},
+      header: { 'content-type': 'application/json' },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        console.log(res)
+        that.setData({
+          equipment: res.data.msg
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
   }
 })

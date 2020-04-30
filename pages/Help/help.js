@@ -1,0 +1,5 @@
+Page({
+  data: {
+    loadingHidden: false,
+  }
+})

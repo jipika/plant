@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="inp">
+    <input type="text" maxlength="10" bindinput="name" placeholder="请编辑昵称（0/10）"/>
+  </view>
+  <view class="button" bindtap="saveClick">保存昵称</view>
+</view>

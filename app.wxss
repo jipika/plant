@@ -1,6 +1,6 @@
 /**app.wxss**/
-
-.container {
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+.containers {
   height: 100%;
   display: flex;
   flex-direction: column;

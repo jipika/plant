@@ -1,0 +1,39 @@
+  .container {
+    padding: 100rpx 60rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container image {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+  }
+  .container .time {
+    margin-top: 12rpx;
+    font-size: 26rpx;
+    font-family: PingFang-SC-Regular;
+    font-weight: 400;
+    color: #808080;
+  }
+  .container .msg {
+    margin-top: 46rpx;
+    font-size: 34rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: bold;
+    color: #101010;
+  }
+  .container .success {
+    margin-top: 63rpx;
+    font-size: 28rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: #3b3b3b;
+  }
+  .container .info {
+    margin-top: 100rpx;
+    font-size: 28rpx;
+    font-family: PingFang-SC-Medium;
+    font-weight: 500;
+    color: #3b3b3b;
+  }

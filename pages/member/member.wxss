@@ -1,1 +1,230 @@
-/* pages/member/member.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f7f8f8;
+}
+
+.container .my-details {
+  width: 100%;
+  position: relative;
+  height: 427rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+  margin-bottom: 10vh;
+}
+
+.container .my-details .img {
+  width: 100%;
+  height: 427rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.container .my-details .details {
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  width: 100%;
+}
+
+.container .my-details .details .left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .my-details .details .left .head {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 15rpx;
+}
+
+.container .my-details .details .left .name view:first-child {
+  font-size: 34rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.container .my-details .details .left .name view:first-child test {
+  display: inline-block;
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background-color: #01af7e;
+  font-size: 25rpx;
+}
+
+.container .my-details .details .left .name view:last-child {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  color: #ffffff;
+}
+
+.container .my-details .details .arrIcon {
+  width: 15rpx;
+  height: 20rpx;
+}
+
+.container .money {
+  position: relative;
+  z-index: 10;
+  width: 710rpx;
+  margin: -92rpx auto 0;
+  height: 158rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .money view:first-child,
+.container .money view:last-child {
+  flex: 1;
+  overflow: hidden;
+}
+
+.container .money view:first-child test,
+.container .money view:last-child test {
+  display: block;
+  text-align: center;
+}
+
+.container .money view:first-child test:first-child,
+.container .money view:last-child test:first-child {
+  font-size: 40rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: bold;
+  color: #ff2424;
+}
+
+.container .money view:first-child test:last-child,
+.container .money view:last-child test:last-child {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #656362;
+}
+
+.container .money view:nth-child(2) {
+  width: 2rpx;
+  height: 134rpx;
+  background-color: #d4d4d4;
+}
+
+.container .ul {
+  width: 710rpx;
+  margin: 33rpx auto 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.container .ul .li {
+  height: 110rpx;
+  padding: 0 35rpx;
+  border-bottom: 1rpx solid #e4e4e4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .ul .li .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #000000;
+}
+
+.container .ul .li .left image {
+  margin-right: 15rpx;
+}
+
+.container .ul .li image.arrIcon {
+  width: 19rpx;
+  height: 31rpx;
+}
+
+.container .ul .li:last-child {
+  border: none;
+}
+
+.container .proup {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .proup .box {
+  text-align: center;
+}
+
+.container .proup .box image.errIcon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-top: 30rpx;
+}
+
+.container .proup .box .Exhibition {
+  background-color: #fff;
+  width: 590rpx;
+  height: 694rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.container .proup .box .Exhibition image {
+  width: 373rpx;
+  height: 373rpx;
+  margin-top: 40rpx;
+}
+
+.container .proup .box .Exhibition .white {
+  width: 407rpx;
+  height: 36rpx;
+  background-color: #eeeeee;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.container .proup .box .Exhibition .text {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #383838;
+  margin-top: 30rpx;
+}
+
+.container .proup .box .Exhibition .btn {
+  width: 300rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: linear-gradient(-90deg, #38c6a0 0%, #6de0c3 100%);
+  border-radius: 42rpx;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 40rpx auto 0;
+  border: none;
+}

@@ -1,0 +1,20 @@
+<!-- pages/msg/msg.wxml -->
+<mp-navigation-bar
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  title="关于我们"
+  back="{{true}}"
+></mp-navigation-bar>
+
+<view class="container">
+  <image class src="/pages/image/xiaolong.png" />
+  <view class="msg" hover-class="none" hover-stop-propagation="false">智能花匠</view>
+  <view class="time" hover-class="none" hover-stop-propagation="false">V1.0 开发:晓龙</view>
+  <view
+    class="info"
+    hover-class="none"
+    hover-stop-propagation="false"
+  >当忙完所有工作时，才发现花儿的叶子发黄很久。养花草需要时间精准、也需要耐心恒心。当看到叶子发蔫才记得浇水，当发现叶子枯黄才记得追加施肥.这些亡羊补牢的方式，不利于花草的成长。突击性养殖办法不能呵护花草，只会让花花草草更加糟糕。草木皆灵动，养殖需谨慎，所以听懂花花草草的心声，是最聪明的爱护方式</view>
+</view>

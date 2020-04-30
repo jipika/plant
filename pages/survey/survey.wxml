@@ -1,0 +1,102 @@
+<!--pages/survey/survey.wxml-->
+<mp-navigation-bar
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  back="{{true}}"
+></mp-navigation-bar>
+<!-- 卡片1 -->
+<view class="main">
+  <!--正面的框  -->
+  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+    <view class="leftBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+    <view class="rightBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+  </view>
+  <!--背面的框  -->
+  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+    <image src />
+  </view>
+</view>
+
+<!-- 卡片2 -->
+<view class="mian2">
+  <!--正面的框  -->
+  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+    <view class="leftBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+    <view class="rightBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+  </view>
+  <!--背面的框  -->
+  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+    <image src />
+  </view>
+</view>
+
+<!-- 卡片3 -->
+<view class="mian3">
+  <!--正面的框  -->
+  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+    <view class="leftBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+    <view class="rightBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+  </view>
+  <!--背面的框  -->
+  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+    <image src />
+  </view>
+</view>
+
+<!-- 卡片4 -->
+<view class="mian4">
+  <!--正面的框  -->
+  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+    <view class="leftBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+    <view class="rightBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+  </view>
+  <!--背面的框  -->
+  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+    <image src />
+  </view>
+</view>
+
+<!-- 卡片5 -->
+<view class="mian5">
+  <!--正面的框  -->
+  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+    <view class="leftBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+    <view class="rightBox">
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">土壤强度</text>
+    </view>
+  </view>
+  <!--背面的框  -->
+  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+    <image src />
+  </view>
+</view>

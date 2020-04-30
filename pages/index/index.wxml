@@ -1,3 +1,42 @@
 <!--index.wxml-->
-<component-tag-title title-text="我的智能花匠" title-up="{{false}}"></component-tag-title>
-<text class selectable="false" space="false" decode="false">123</text>
+<!-- 导航栏 -->
+<mp-navigation-bar
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  title="我的智能花匠"
+  back="{{false}}"
+>
+  <image class="add" src="/pages/image/增加.svg" slot="left" lazy-load="false" binderror bindload />
+</mp-navigation-bar>
+<!-- 设备栏 -->
+<view class="page" wx:for="{{equipment}}" wx:key="index" bindtap="goSurvey">
+  <view class="page__bd">
+    <view class="weui-slidecells">
+      <mp-slideview icon="{{true}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+        <view class="weui-slidecell">
+          <button>
+            <image
+              class="leftImg"
+              src="/pages/image/icon_more_operation_save-xxhdpi.png"
+              lazy-load="{{true}}"
+              binderror
+              bindload
+            />
+            <view>
+              <text class="name" selectable="false" space="false" decode="false">{{item.name}}</text>
+              <text
+                class="time"
+                selectable="false"
+                space="false"
+                decode="false"
+              >更新时间:{{item.shijian}}</text>
+            </view>
+            <image src="{{item.image}}" class="rightImg" lazy-load="false" binderror bindload />
+          </button>
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+</view>

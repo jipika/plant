@@ -1,2 +1,66 @@
-<!--pages/member/member.wxml-->
-<text>pages/member/member.wxml</text>
+<mp-navigation-bar
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  title="我的智能花匠"
+  back="{{false}}"
+></mp-navigation-bar>
+<view class="container">
+  <view class="my-details">
+    <image class="img" src="/pages/image/bg.png" />
+    <view class="details" bindtap="pageTo" data-url="/pages/team/team">
+      <view class="left">
+        <image class="head" src="/pages/image/txtx.png" />
+        <view class="name">
+          <view>晓龙</view>
+          <view>158*****77</view>
+        </view>
+      </view>
+      <image class="arrIcon" src="/pages/image/xy08.png" />
+    </view>
+  </view>
+
+  <view class="money" bindtap="pageTo" data-url>
+    <view>
+      <test>保留</test>
+    </view>
+    <view></view>
+    <view>
+      <test>不知道写什么功能呢</test>
+    </view>
+  </view>
+
+  <view class="ul">
+    <view class="li" bindtap="helpCenter">
+      <view class="left">
+        <image src="/pages/image/bz01.png" mode="widthFix" style="width:20px;" />
+        <text>帮助中心</text>
+      </view>
+      <image class="arrIcon" src="/pages/image/zy01.png" />
+    </view>
+    <view class="li" bindtap="feedback">
+      <view class="left">
+        <image src="/pages/image/yqm01.png" mode="widthFix" style="width:20px;" />
+        <text>意见反馈</text>
+      </view>
+      <image class="arrIcon" src="/pages/image/zy01.png" />
+    </view>
+
+    <view class="li" bindtap="Mycollected">
+      <view class="left">
+        <image src="/pages/image/yj01.png" mode="widthFix" style="width:20px;" />
+        <text>用户协议</text>
+      </view>
+      <image class="arrIcon" src="/pages/image/zy01.png" />
+    </view>
+
+    <view class="li" bindtap="aboutUs">
+      <view class="left">
+        <image src="/pages/image/gy01.png" mode="widthFix" style="width:20px;" />
+        <text>关于我们</text>
+      </view>
+      <image class="arrIcon" src="/pages/image/zy01.png" />
+    </view>
+  </view>
+</view>

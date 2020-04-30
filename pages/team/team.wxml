@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="ul">
+    <view class="li">
+      <test class="left">修改头像</test>
+      <view class="right">
+        <image class="head" src="{{headImg}}" bindtap="chooseHead"></image>
+        <image class="arrIcon" src="../../images/zy01.png"></image>
+      </view>
+    </view>
+    <view class="li" bindtap="pageTo" data-url="/pages/name/name">
+      <test class="left">个人昵称</test>
+      <view class="right">
+        <test>请编辑昵称</test>
+        <image class="arrIcon" src="../../images/zy01.png"></image>
+      </view>
+    </view>
+    <view class="li" bindtap="pageTo" data-url="/pages/phone/phone">
+      <test class="left">手 机 号</test>
+      <view class="right">
+        <test>188****8888</test>
+        <image class="arrIcon" src="../../images/zy01.png"></image>
+      </view>
+    </view>
+  </view>
+
+</view>

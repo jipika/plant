@@ -5,7 +5,15 @@
     "pages/news/news",
     "pages/member/member",
     "pages/detail/detail",
-    "pages/detailPant/detailPant"
+    "pages/detailPant/detailPant",
+    "pages/team/team",
+    "pages/name/name",
+    "pages/phone/phone",
+    "pages/Help/help",
+    "pages/feedback/feedback",
+    "pages/aboutOurs/aboutOurs",
+    "pages/xieyi/xieyi",
+    "pages/survey/survey"
   ],
   "window": {
     "backgroundTextStyle": "light",

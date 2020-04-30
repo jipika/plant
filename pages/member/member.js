@@ -1,13 +1,42 @@
-// pages/member/member.js
+// pages/my/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isProup: false
   },
 
+  pageTo({ currentTarget: { dataset } }) {
+    // console.log(dataset);
+    wx.navigateTo({
+      url: dataset.url
+    })
+  },
+  Invitation() {
+    this.setData({
+      isProup: !this.data.isProup
+    })
+  },
+  aboutUs() {
+    wx.navigateTo({ url: '../aboutOurs/aboutOurs' });
+  },
+  feedback() {
+    wx.navigateTo({ url: '../feedback/feedback' });
+  },
+  helpCenter() {
+    wx.navigateTo({ url: '../Help/help' });
+  },
+  Mycollected() {
+    wx.navigateTo({ url: '../xieyi/xieyi' });
+  },
+  myTeam() {
+    wx.navigateTo({ url: '../team/team' });
+  },
+
+
+  
   /**
    * 生命周期函数--监听页面加载
    */

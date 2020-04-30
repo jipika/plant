@@ -1,0 +1,8 @@
+<!--pages/Help/help.wxml-->
+
+
+<web-view src="http://huajiang.hongquelin.com/zhinenghuajiang/xiaolong/help.html"></web-view>
+
+<loading hidden="{{loadingHidden}}">
+     数据加载中...
+</loading>

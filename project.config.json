@@ -59,9 +59,9 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/logs/logs",
-					"pathName": "pages/index/index",
+					"id": 0,
+					"name": "pages/member/member",
+					"pathName": "pages/member/member",
 					"query": "",
 					"scene": null
 				},
@@ -76,6 +76,13 @@
 					"id": 2,
 					"name": "pages/detailPant/detailPant",
 					"pathName": "pages/detailPant/detailPant",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/survey/survey",
+					"pathName": "pages/survey/survey",
 					"query": "",
 					"scene": null
 				}
