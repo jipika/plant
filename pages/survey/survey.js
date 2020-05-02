@@ -5,17 +5,26 @@ Page({
    */
   data: {
     animationMain: null, //正面
-    animationBack: null //背面
+    animationMain1: null, //正面
+    animationMain2: null, //正面
+    animationMain3: null, //正面
+    animationMain4: null, //正面
+    animationBack: null, //背面
+    animationBack1: null, //背面
+    animationBack2: null, //背面
+    animationBack3: null, //背面
+    animationBack4: null, //背面
+    surveyList: ''
   },
   // 反转动画
   rotateFn(e) {
     var id = e.currentTarget.dataset.id
     this.animation_main = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'linear'
     })
     this.animation_back = wx.createAnimation({
-      duration: 400,
+      duration: 200,
       timingFunction: 'linear'
     })
     // 点击正面
@@ -38,11 +47,162 @@ Page({
       })
     }
   },
+  // 反转动画
+  rotateFn1(e) {
+    var id = e.currentTarget.dataset.id
+    this.animation_main = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    this.animation_back = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    // 点击正面
 
+    if (id == 1) {
+      this.animation_main.rotateX(180).step()
+      this.animation_back.rotateX(0).step()
+      this.setData({
+        animationMain1: this.animation_main.export(),
+        animationBack1: this.animation_back.export()
+      })
+    }
+    // 点击背面
+    else if (id == 2) {
+      this.animation_main.rotateX(0).step()
+      this.animation_back.rotateX(-180).step()
+      this.setData({
+        animationMain1: this.animation_main.export(),
+        animationBack1: this.animation_back.export()
+      })
+    }
+  },
+  // 反转动画
+  rotateFn2(e) {
+    var id = e.currentTarget.dataset.id
+    this.animation_main = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    this.animation_back = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    // 点击正面
+
+    if (id == 1) {
+      this.animation_main.rotateX(180).step()
+      this.animation_back.rotateX(0).step()
+      this.setData({
+        animationMain2: this.animation_main.export(),
+        animationBack2: this.animation_back.export()
+      })
+    }
+    // 点击背面
+    else if (id == 2) {
+      this.animation_main.rotateX(0).step()
+      this.animation_back.rotateX(-180).step()
+      this.setData({
+        animationMain2: this.animation_main.export(),
+        animationBack2: this.animation_back.export()
+      })
+    }
+  },
+  // 反转动画
+  rotateFn3(e) {
+    var id = e.currentTarget.dataset.id
+    this.animation_main = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    this.animation_back = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    // 点击正面
+
+    if (id == 1) {
+      this.animation_main.rotateX(180).step()
+      this.animation_back.rotateX(0).step()
+      this.setData({
+        animationMain3: this.animation_main.export(),
+        animationBack3: this.animation_back.export()
+      })
+    }
+    // 点击背面
+    else if (id == 2) {
+      this.animation_main.rotateX(0).step()
+      this.animation_back.rotateX(-180).step()
+      this.setData({
+        animationMain3: this.animation_main.export(),
+        animationBack3: this.animation_back.export()
+      })
+    }
+  },
+  // 反转动画
+  rotateFn4(e) {
+    var id = e.currentTarget.dataset.id
+    this.animation_main = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    this.animation_back = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear'
+    })
+    // 点击正面
+
+    if (id == 1) {
+      this.animation_main.rotateX(180).step()
+      this.animation_back.rotateX(0).step()
+      this.setData({
+        animationMain4: this.animation_main.export(),
+        animationBack4: this.animation_back.export()
+      })
+    }
+    // 点击背面
+    else if (id == 2) {
+      this.animation_main.rotateX(0).step()
+      this.animation_back.rotateX(-180).step()
+      this.setData({
+        animationMain4: this.animation_main.export(),
+        animationBack4: this.animation_back.export()
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    var that = this
+    console.log(options.iot)
+    var iot = options.iot
+    console.log(iot)
+
+    wx.request({
+      url: `http://iot.hongquelin.com/service/page/node/sensor/list/special.json`,
+      data: {
+        scene_id: '2',
+        node_data_type: '0',
+        device_code: iot
+      },
+      header: {
+        'content-type': 'application/json',
+        Accept: 'application/json, text/javascript, */*; q=0.01',
+        'USER-KEY': '426aad8a150a4d85a8fa7221085edca3'
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        console.log(res.data.data[0].iotSensorList)
+        that.setData({
+          surveyList: res.data.data[0].iotSensorList
+        })
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

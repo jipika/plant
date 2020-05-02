@@ -26,7 +26,7 @@ button {
   text-align: left;
 }
 .time {
-  font-size: 12px;
+  font-size: 10px;
   color: #a0a1a2;
 }
 .rightImg {

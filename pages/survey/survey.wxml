@@ -6,13 +6,55 @@
   background="#EDF1F2"
   back="{{true}}"
 ></mp-navigation-bar>
+<!-- 用户状态栏 -->
+<view class="status">
+  <view class="leftStatus">
+    <text class selectable="false" space="false" decode="false" style="color: #686786;">橘子</text>
+    <image class="lian" src="/pages/image/lianjie.svg" lazy-load="false" binderror bindload />
+    <text class selectable="false" space="false" decode="false">已监听177天</text>
+  </view>
+  <view class="rightStatus">
+    <image class="rightImg" src mode="aspectFit" lazy-load="false" binderror bindload />
+    <image
+      class="arrow_right"
+      src="/pages/image/arrow_right.svg"
+      mode="aspectFit"
+      lazy-load="false"
+      binderror
+      bindload
+    />
+  </view>
+</view>
+
+<!-- 分割线状态栏 -->
+<van-divider hairline customStyle="border-color: #a0a1a2; margin: 0 40px;" />
+
+<!-- 重新连接 -->
+<view class="again">
+  <view class="leftAgain">
+    <image class="lian" src="/pages/image/duankai.svg" lazy-load="false" binderror bindload />
+    <text class selectable="false" space="false" decode="false">连接失败</text>
+  </view>
+  <view class="rightAgain">
+    <text class selectable="false" space="false" decode="false">重新连接</text>
+    <image
+      class="lian1"
+      src="/pages/image/wenhao.svg"
+      mode="aspectFit|aspectFill|widthFix"
+      lazy-load="false"
+      binderror
+      bindload
+    />
+  </view>
+</view>
+
 <!-- 卡片1 -->
 <view class="main">
   <!--正面的框  -->
-  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+  <view class="box b1" animation="{{animationMain1}}" bindtap="rotateFn1" data-id="1">
     <view class="leftBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[1].name}}</text>
+      <text class selectable="false" space="false" decode="false">Ambient Humidity</text>
     </view>
     <view class="rightBox">
       <text class selectable="false" space="false" decode="false">土壤强度</text>
@@ -20,7 +62,7 @@
     </view>
   </view>
   <!--背面的框  -->
-  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+  <view class="box b2" animation="{{animationBack1}}" bindtap="rotateFn1" data-id="2">
     <image src />
   </view>
 </view>
@@ -30,8 +72,8 @@
   <!--正面的框  -->
   <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
     <view class="leftBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[0].name}}</text>
+      <text class selectable="false" space="false" decode="false">Temperature</text>
     </view>
     <view class="rightBox">
       <text class selectable="false" space="false" decode="false">土壤强度</text>
@@ -47,10 +89,10 @@
 <!-- 卡片3 -->
 <view class="mian3">
   <!--正面的框  -->
-  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+  <view class="box b1" animation="{{animationMain2}}" bindtap="rotateFn2" data-id="1">
     <view class="leftBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[2].name}}</text>
+      <text class selectable="false" space="false" decode="false">Light Intensity</text>
     </view>
     <view class="rightBox">
       <text class selectable="false" space="false" decode="false">土壤强度</text>
@@ -58,7 +100,7 @@
     </view>
   </view>
   <!--背面的框  -->
-  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+  <view class="box b2" animation="{{animationBack2}}" bindtap="rotateFn2" data-id="2">
     <image src />
   </view>
 </view>
@@ -66,18 +108,18 @@
 <!-- 卡片4 -->
 <view class="mian4">
   <!--正面的框  -->
-  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+  <view class="box b1" animation="{{animationMain3}}" bindtap="rotateFn3" data-id="1">
     <view class="leftBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[3].name}}</text>
+      <text class selectable="false" space="false" decode="false">Soil Humidity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">113</text>
       <text class selectable="false" space="false" decode="false">土壤强度</text>
     </view>
   </view>
   <!--背面的框  -->
-  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+  <view class="box b2" animation="{{animationBack3}}" bindtap="rotateFn3" data-id="2">
     <image src />
   </view>
 </view>
@@ -85,10 +127,10 @@
 <!-- 卡片5 -->
 <view class="mian5">
   <!--正面的框  -->
-  <view class="box b1" animation="{{animationMain}}" bindtap="rotateFn" data-id="1">
+  <view class="box b1" animation="{{animationMain4}}" bindtap="rotateFn4" data-id="1">
     <view class="leftBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[4].name}}</text>
+      <text class selectable="false" space="false" decode="false">Soil Nutrient</text>
     </view>
     <view class="rightBox">
       <text class selectable="false" space="false" decode="false">土壤强度</text>
@@ -96,7 +138,7 @@
     </view>
   </view>
   <!--背面的框  -->
-  <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
+  <view class="box b2" animation="{{animationBack4}}" bindtap="rotateFn4" data-id="2">
     <image src />
   </view>
 </view>

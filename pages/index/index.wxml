@@ -11,7 +11,7 @@
   <image class="add" src="/pages/image/增加.svg" slot="left" lazy-load="false" binderror bindload />
 </mp-navigation-bar>
 <!-- 设备栏 -->
-<view class="page" wx:for="{{equipment}}" wx:key="index" bindtap="goSurvey">
+<view class="page" data-id="{{item.iot}}" wx:for="{{equipment}}" wx:key="index" bindtap="goSurvey">
   <view class="page__bd">
     <view class="weui-slidecells">
       <mp-slideview icon="{{true}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">

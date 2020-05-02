@@ -4,18 +4,16 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     slideButtons: '',
     token: '5a219217b508118ce2f9f809ff09cde5',
     equipment: ''
   },
   // 事件处理函数
-  goSurvey: function () {
+  goSurvey: function (e) {
+    console.log(e)
+    var iot = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/survey/survey'
+      url: `/pages/survey/survey?iot=${iot}`
     })
   },
   onLoad: function () {
