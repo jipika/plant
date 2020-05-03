@@ -55,6 +55,7 @@ App({
     rect: null,
     detail: null,
     imgPath: null,
-    detailPant: null
+    detailPant: null,
+    token: null
   }
 })

@@ -1,5 +1,5 @@
 /**index.wxss**/
-button {
+.btnList {
   margin: 20rpx auto !important;
   width: 95% !important;
   color: #000;
@@ -13,9 +13,10 @@ button {
   box-shadow: 0 0 5rpx #a0a1a2;
 }
 .leftImg {
-  width: 60px;
+  width: 40px;
   height: 40px;
   border-right: 4rpx solid #a0a1a2;
+  padding-right: 8px;
 }
 .weui-slideview__btn__wrp {
   bottom: -10px !important;
@@ -41,4 +42,46 @@ button {
 .add {
   width: 40rpx;
   height: 40rpx;
+}
+.btnList {
+  padding: 15px 24px !important;
+}
+.minBox {
+  margin-left: -60px;
+}
+.int {
+  width: 80%;
+  margin: 20px auto;
+  height: 4vh;
+  border-radius: 8px;
+  border: 1px solid #a0a1a2;
+  box-shadow: 0 0 1px #a0a1a2;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.int:hover {
+  border: 1px solid #1aad19;
+  box-shadow: 0 0 1px #1aad19;
+}
+.queren {
+  height: 4vh !important;
+  line-height: 12px;
+  text-align: center;
+  border: 1px solid #1aad19;
+  width: 20% !important;
+  background: #1aad19;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  transform: translateY(-40%);
+  -webkit-transform: translateY(-40%);
+  -moz-transform: translateY(-40%);
+  -ms-transform: translateY(-40%);
+  -o-transform: translateY(-40%);
+  font-size: 12px;
+  color: #fff;
 }

@@ -7,16 +7,29 @@
   background="#EDF1F2"
   title="我的智能花匠"
   back="{{false}}"
+  loading="{{loading}}"
 >
-  <image class="add" src="/pages/image/增加.svg" slot="left" lazy-load="false" binderror bindload />
+  <image class="add" src="/pages/image/add.svg" slot="left" lazy-load="false" binderror bindload />
 </mp-navigation-bar>
 <!-- 设备栏 -->
-<view class="page" data-id="{{item.iot}}" wx:for="{{equipment}}" wx:key="index" bindtap="goSurvey">
+<view
+  class="page"
+  data-id="{{item.iot}}"
+  data-pid="{{item.pid}}"
+  wx:for="{{equipment}}"
+  wx:key="index"
+  bindtap="goSurvey"
+>
   <view class="page__bd">
     <view class="weui-slidecells">
-      <mp-slideview icon="{{true}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+      <mp-slideview
+        icon="{{true}}"
+        data-iot="{{item.iot}}"
+        buttons="{{slideButtons}}"
+        bindbuttontap="slideButtonTap"
+      >
         <view class="weui-slidecell">
-          <button>
+          <button class="btnList">
             <image
               class="leftImg"
               src="/pages/image/icon_more_operation_save-xxhdpi.png"
@@ -24,7 +37,7 @@
               binderror
               bindload
             />
-            <view>
+            <view class="minBox">
               <text class="name" selectable="false" space="false" decode="false">{{item.name}}</text>
               <text
                 class="time"
@@ -40,3 +53,16 @@
     </view>
   </view>
 </view>
+<!-- 弹框输入 -->
+<van-action-sheet
+  safe-area-inset-bottom
+  bind:click-overlay="onCancel"
+  show="{{ show }}"
+  cancel-text="取消"
+  bind:cancel="onCancel"
+  description="请输入设备名称"
+  actions="{{ actions }}"
+>
+  <input class="int" type="text" focus bindinput="bindKeyInput" />
+  <button class="queren" bindtap="namePut">确认</button>
+</van-action-sheet>

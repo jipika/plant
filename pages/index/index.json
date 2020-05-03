@@ -4,6 +4,9 @@
     "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-slideview": "/miniprogram_npm/weui-miniprogram/slideview/slideview",
-    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon"
-  }
+    "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }

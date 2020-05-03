@@ -5,11 +5,18 @@
   color="#A0A1A2"
   background="#EDF1F2"
   back="{{true}}"
+  bindback="bindback"
 ></mp-navigation-bar>
 <!-- 用户状态栏 -->
 <view class="status">
   <view class="leftStatus">
-    <text class selectable="false" space="false" decode="false" style="color: #686786;">橘子</text>
+    <text
+      class
+      selectable="false"
+      space="false"
+      decode="false"
+      style="color: #686786;"
+    >{{detail.name}}</text>
     <image class="lian" src="/pages/image/lianjie.svg" lazy-load="false" binderror bindload />
     <text class selectable="false" space="false" decode="false">已监听177天</text>
   </view>
@@ -57,13 +64,22 @@
       <text class selectable="false" space="false" decode="false">Ambient Humidity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[1].sdata}}</text>
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{detail.shidu_min + "~" + detail.shidu_max + "\t(\t" + surveyList[1].data.measure_unit_type + "\t)"}}</text>
     </view>
   </view>
   <!--背面的框  -->
   <view class="box b2" animation="{{animationBack1}}" bindtap="rotateFn1" data-id="2">
-    <image src />
+    <view class="fanBox">
+      <image class="fanImg" src="/pages/image/dengpao.svg" lazy-load="false" binderror bindload />
+      <text class selectable="false" space="false" decode="false">如何浇水</text>
+    </view>
+    <text class="fanFont" selectable="false" space="false" decode="false">当前水分过低,\t请帮我浇一次透水哦~</text>
   </view>
 </view>
 
@@ -76,13 +92,18 @@
       <text class selectable="false" space="false" decode="false">Temperature</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[0].sdata}}</text>
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{detail.wendu_min + "~" + detail.wendu_max + "\t(\t" + surveyList[0].data.measure_unit_type + "\t)"}}</text>
     </view>
   </view>
   <!--背面的框  -->
   <view class="box b2" animation="{{animationBack}}" bindtap="rotateFn" data-id="2">
-    <image src />
+    <text class="fanFont1" selectable="false" space="false" decode="false">当前温度合适,\t请急需保持哦~</text>
   </view>
 </view>
 
@@ -95,13 +116,18 @@
       <text class selectable="false" space="false" decode="false">Light Intensity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[2].sdata}}</text>
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{detail.guangzhao_min + "~" + detail.guangzhao_max + "\t(\t" + surveyList[2].data.measure_unit_type + "\t)"}}</text>
     </view>
   </view>
   <!--背面的框  -->
   <view class="box b2" animation="{{animationBack2}}" bindtap="rotateFn2" data-id="2">
-    <image src />
+    <text class="fanFont1" selectable="false" space="false" decode="false">夜幕降临,\t休息一下,\t好梦,\t明天见咯~</text>
   </view>
 </view>
 
@@ -114,13 +140,18 @@
       <text class selectable="false" space="false" decode="false">Soil Humidity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">113</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[3].sdata}}</text>
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{detail.turangshidu_min + "~" + detail.turangshidu_max + "\t(\t" + surveyList[3].data.measure_unit_type + "\t)"}}</text>
     </view>
   </view>
   <!--背面的框  -->
   <view class="box b2" animation="{{animationBack3}}" bindtap="rotateFn3" data-id="2">
-    <image src />
+    <text class="fanFont1" selectable="false" space="false" decode="false">当前水分充足,\t请继续保持~</text>
   </view>
 </view>
 
@@ -133,12 +164,17 @@
       <text class selectable="false" space="false" decode="false">Soil Nutrient</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
-      <text class selectable="false" space="false" decode="false">土壤强度</text>
+      <text class selectable="false" space="false" decode="false">{{surveyList[4].sdata}}</text>
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{detail.turangfeili_min + "~" + detail.turangfeili_max + "\t(\t" + surveyList[4].data.measure_unit_type + "\t)"}}</text>
     </view>
   </view>
   <!--背面的框  -->
   <view class="box b2" animation="{{animationBack4}}" bindtap="rotateFn4" data-id="2">
-    <image src />
+    <text class="fanFont1" selectable="false" space="false" decode="false">当前肥力合适,\t请继续保持哦~</text>
   </view>
 </view>

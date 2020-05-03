@@ -30,7 +30,7 @@ view:focus {
 }
 .leftBox text {
   display: block;
-  margin-top: 7px;
+  margin-top: 9px;
   margin-left: 20px;
   font-size: 28rpx;
   color: #000;
@@ -46,7 +46,7 @@ view:focus {
 }
 .rightBox text {
   display: block;
-  margin-top: 7px;
+  margin-top: 9px;
   margin-left: 20px;
   font-size: 28rpx;
   margin-right: 20px;
@@ -71,10 +71,25 @@ view:focus {
   width: 100%;
   height: 100%;
 }
+.fanFont {
+  margin-left: 20px;
+  margin-top: 2px;
+  color: grey;
+}
+.fanBox {
+  margin-top: 12px;
+  margin-left: 15px;
+  color: gray;
+}
+.fanFont1 {
+  margin-left: 20px;
+  line-height: 9vh;
+  color: grey;
+}
 .b1 {
   opacity: 0.8;
   width: 100%;
-  height: 8vh;
+  height: 9vh;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -82,13 +97,14 @@ view:focus {
 .b2 {
   opacity: 0.8;
   width: 100%;
-  height: 8vh;
+  height: 9vh;
   background: #fff;
   transform: rotateX(-180deg);
+  font-size: 14px;
 }
 .main {
   position: absolute;
-  top: 40%;
+  top: 25%;
   left: 50%;
   width: 90%;
   height: 200prx;
@@ -96,15 +112,19 @@ view:focus {
 }
 .mian2 {
   position: absolute;
-  top: 30%;
+  top: 37%;
   left: 50%;
   width: 90%;
   height: 200prx;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 .mian3 {
   position: absolute;
-  top: 50%;
+  top: 49%;
   left: 50%;
   width: 90%;
   height: 200prx;
@@ -112,7 +132,7 @@ view:focus {
 }
 .mian4 {
   position: absolute;
-  top: 60%;
+  top: 61%;
   left: 50%;
   width: 90%;
   height: 200prx;
@@ -120,7 +140,7 @@ view:focus {
 }
 .mian5 {
   position: absolute;
-  top: 70%;
+  top: 73%;
   left: 50%;
   width: 90%;
   height: 200prx;
@@ -144,6 +164,13 @@ view:focus {
   width: 8px;
   height: 8px;
   display: inline-block;
+  margin-right: 3px;
+}
+
+.fanImg {
+  display: inline-block;
+  width: 20px !important;
+  height: 13px !important;
 }
 .lian1 {
   position: relative;

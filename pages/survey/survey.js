@@ -14,7 +14,9 @@ Page({
     animationBack2: null, //背面
     animationBack3: null, //背面
     animationBack4: null, //背面
-    surveyList: ''
+    surveyList: '',
+    detail: '',
+    num: 0
   },
   // 反转动画
   rotateFn(e) {
@@ -171,14 +173,38 @@ Page({
       })
     }
   },
+  bindback() {
+    console.log(1)
+    this.setData({
+      num: 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this
-    console.log(options.iot)
+    console.log(options)
+    console.log(options.pid)
     var iot = options.iot
+    var pid = options.pid
     console.log(iot)
+
+    // 个人设备植物详细
+    wx.request({
+      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
+      data: {},
+      header: { 'content-type': 'application/json' },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        console.log(res)
+        that.setData({
+          detail: res.data.msg[0]
+        })
+      }
+    })
 
     wx.request({
       url: `http://iot.hongquelin.com/service/page/node/sensor/list/special.json`,
@@ -202,6 +228,65 @@ Page({
         })
       }
     })
+    updated()
+    function updated() {
+      wx.request({
+        url: 'http://iot.hongquelin.com/service/sensor/param/down.json',
+        data: { sdata: '1', id: 15 },
+        header: { 'content-type': 'application/json' },
+        method: 'PUT',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          console.log(res)
+        }
+      })
+
+      wx.request({
+        url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
+        data: {},
+        header: { 'content-type': 'application/json' },
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          console.log(res)
+          that.setData({
+            detail: res.data.msg[0]
+          })
+        }
+      })
+
+      wx.request({
+        url: `http://iot.hongquelin.com/service/page/node/sensor/list/special.json`,
+        data: {
+          scene_id: '2',
+          node_data_type: '0',
+          device_code: iot
+        },
+        header: {
+          'content-type': 'application/json',
+          Accept: 'application/json, text/javascript, */*; q=0.01',
+          'USER-KEY': '426aad8a150a4d85a8fa7221085edca3'
+        },
+        method: 'POST',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          console.log(res.data.data[0].iotSensorList)
+          that.setData({
+            surveyList: res.data.data[0].iotSensorList
+          })
+        }
+      })
+
+      clearTimeout(timer)
+      var timer = setTimeout(() => {
+        if (that.data.num == 0) {
+          updated()
+        }
+      }, 5000)
+    }
   },
 
   /**
