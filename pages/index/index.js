@@ -8,25 +8,53 @@ Page({
     token: '5a219217b508118ce2f9f809ff09cde5',
     equipment: '',
     show: false,
-    inputValue: '',
+    inputIot: '',
     iot: '',
-    loading: ''
+    loading: '',
+    showTwo: false
+  },
+  confirm: function () {
+    this.setData({
+      showTwo: false
+    })
+  },
+  // 添加设备
+  clickAdd() {
+    this.setData({
+      showTwo: true
+    })
+  },
+  iotPut() {
+    var inputIot = this.data.inputIot
+    wx.navigateTo({
+      url: `/pages/switch/switch?inputIot=${inputIot}`,
+      success: (res) => {
+        console.log(res)
+      }
+    })
   },
   // 事件处理函数
   goSurvey: function (e) {
     console.log(e)
     var iot = e.currentTarget.dataset.id
     var pid = e.currentTarget.dataset.pid
+    var uid = e.currentTarget.dataset.uid
     console.log(pid)
 
     wx.navigateTo({
-      url: `/pages/survey/survey?iot=${iot}&pid=${pid}`
+      url: `/pages/survey/survey?iot=${iot}&pid=${pid}&uid=${uid}`
     })
   },
   // 获得键盘内容
   bindKeyInput(e) {
     this.setData({
       inputValue: e.detail.value
+    })
+  },
+  // 获得弹起键盘内容
+  bindIotInput(e) {
+    this.setData({
+      inputIot: e.detail.value
     })
   },
   namePut() {
@@ -36,7 +64,7 @@ Page({
     var that = this
     var iot = this.data.iot
     wx.request({
-      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=genggai_zhiwunicheng&iot=${iot}&name=${value}&token=${token}&app=10000`,
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=genggai_zhiwunicheng&iot=${iot}&name=${value}&token=${token}&app=10000`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'POST',
@@ -64,7 +92,8 @@ Page({
   // 拉起菜单
   onCancel() {
     this.setData({
-      show: false
+      show: false,
+      showTwo: false
     })
     console.log(this.data.show)
   },
@@ -83,6 +112,14 @@ Page({
       })
       console.log(this.data.show)
     }
+    if (e.detail.index == 1) {
+      wx.navigateTo({
+        url: `/pages/switch/switch?iot=${iot}`,
+        success: (res) => {
+          console.log(res)
+        }
+      })
+    }
     if (e.detail.index == 2) {
       wx.showModal({
         title: '确认删除',
@@ -95,7 +132,7 @@ Page({
         success: (res) => {
           if (res.cancel) {
             wx.request({
-              url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=jiechu_shebei&app=10000&token=${token}&iot=${iot}`,
+              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=jiechu_shebei&app=10000&token=${token}&iot=${iot}`,
               data: {},
               header: { 'content-type': 'application/json' },
               method: 'POST',
@@ -133,13 +170,15 @@ Page({
   getList() {
     var that = this
     wx.request({
-      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=geren_liebiao&app=10000&token=${that.data.token}`,
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=geren_liebiao&app=10000&token=${that.data.token}`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'POST',
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
+        console.log(res.data.msg)
+
         wx.stopPullDownRefresh({
           success: (res) => {
             this.setData({
@@ -167,8 +206,12 @@ Page({
         {
           src: '/pages/image/shanchu.svg'
         }
-      ]
+      ],
+      showTwo: false
     })
+    this.getList()
+  },
+  onShow() {
     this.getList()
   }
 })

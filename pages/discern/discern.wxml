@@ -3,7 +3,7 @@
 <view style="height: 96px"></view>
 <view class="camera" bindtap="customMethod">
   <image
-    src="http://qingchun.hongquelin.com/zhinenghuajiang/image/pick_camera.png"
+    src="https://qingchun.hongquelin.com/zhinenghuajiang/image/pick_camera.png"
     mode="aspectFill"
     lazy-load="false"
     binderror

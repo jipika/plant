@@ -25,7 +25,7 @@ Page({
     var that = this
     console.log(e.currentTarget.dataset.name)
     wx.request({
-      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${e.currentTarget.dataset.name}`,
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${e.currentTarget.dataset.name}`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'post',
@@ -40,7 +40,7 @@ Page({
     })
 
     wx.request({
-      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${that.data.pid}`,
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${that.data.pid}`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'POST',

@@ -1,0 +1,42 @@
+/* pages/switchDetail/switchDetail.wxss */
+.tr {
+  border-top: 1px solid #cccccc;
+  display: flex;
+  justify-content: flex-start;
+}
+.tr:last-child {
+  border-bottom: 1px solid #cccccc;
+}
+.tr_l {
+  padding: 20px;
+  width: 30%;
+  border-right: 1px solid #cccccc;
+}
+.tr_r {
+  width: 70%;
+  padding: 20px;
+}
+text {
+  display: block;
+  line-height: 40px;
+  text-align: center;
+}
+.wancheng {
+  width: 90% !important;
+  color: #fff;
+  font-size: 16px;
+  background-color: #1aad19;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  position: fixed;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}

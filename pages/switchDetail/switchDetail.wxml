@@ -1,4 +1,4 @@
-<!--pages/detailPant/detailPant.wxml-->
+<!--pages/switchDetail/switchDetail.wxml-->
 <component-tag-title title-text="植物详细信息" title-back="{{false}}"></component-tag-title>
 <view style="height: 96px"></view>
 <image class src="{{getList.image}}" style="width: 100%" lazy-load="false" binderror bindload />
@@ -46,6 +46,6 @@
 </view>
 <view class="tr">
   <view class="tr_l" wx:if="{{getList.jianjie}}">简介</view>
-  <view class="tr_r" style="white-space:pre-wrap" wx:if="{{getList.jianjie}}">{{getList.jianjie}}</view>
+  <view class="tr_r" wx:if="{{getList.jianjie}}">{{getList.jianjie}}</view>
 </view>
-
+<button class="wancheng" bindtap="wancheng">完成</button>

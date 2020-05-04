@@ -1,4 +1,5 @@
-/* pages/news/news.wxss */
+/* pages/switch/switch.wxss */
+
 .van-nav-bar {
   background-color: #edf1f2 !important;
   z-index: 999 !important;
@@ -13,8 +14,8 @@
   margin-top: 10px;
 }
 .img {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   margin-bottom: 10px;
   margin-left: 20px;
@@ -39,8 +40,8 @@
 }
 .pantTop text {
   position: absolute;
-  top: 3.5vh;
-  left: 15vh;
+  top: 35px;
+  left: 105px;
 }
 .tab {
   width: 100%;

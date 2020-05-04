@@ -186,13 +186,15 @@ Page({
     var that = this
     console.log(options)
     console.log(options.pid)
+    console.log(options.uid)
     var iot = options.iot
     var pid = options.pid
+    var uid = options.uid
     console.log(iot)
 
     // 个人设备植物详细
     wx.request({
-      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'POST',
@@ -232,7 +234,7 @@ Page({
     function updated() {
       wx.request({
         url: 'http://iot.hongquelin.com/service/sensor/param/down.json',
-        data: { sdata: '1', id: 15 },
+        data: { sdata: '1', id: uid },
         header: { 'content-type': 'application/json' },
         method: 'PUT',
         dataType: 'json',
@@ -243,7 +245,7 @@ Page({
       })
 
       wx.request({
-        url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
+        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
         data: {},
         header: { 'content-type': 'application/json' },
         method: 'POST',

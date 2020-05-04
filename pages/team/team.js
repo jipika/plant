@@ -17,7 +17,7 @@ Page({
         // console.log(res);
 
         wx.uploadFile({
-          url: 'http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=upic&app=10000&token=adcf619f199ff6a9e2e7ba8209644101',//调用登录的token
+          url: 'https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=upic&app=10000&token=adcf619f199ff6a9e2e7ba8209644101',//调用登录的token
           filePath: res.tempFilePaths[0],
           name: 'name',
           success: function (info) {

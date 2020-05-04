@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/logs/logs",
     "pages/index/index",
     "pages/discern/discern",
     "pages/news/news",
@@ -13,7 +14,10 @@
     "pages/feedback/feedback",
     "pages/aboutOurs/aboutOurs",
     "pages/xieyi/xieyi",
-    "pages/survey/survey"
+    "pages/survey/survey",
+    "pages/switch/switch",
+    "pages/switchDetail/switchDetail",
+    "pages/addIot/addIot"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,8 +28,8 @@
   },
   "tabBar": {
     "color": "#9E9E9E",
-    "selectedColor": "",
-    "backgroundColor": "",
+    "selectedColor": "#4dc160",
+    "backgroundColor": "#ffffff",
     "position": "bottom",
     "borderStyle": "black",
     "list": [

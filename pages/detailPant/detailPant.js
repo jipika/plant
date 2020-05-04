@@ -17,7 +17,7 @@ Page({
     console.log(options.pid)
     if (options.pid) {
       wx.request({
-        url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
+        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
         data: {},
         header: { 'content-type': 'application/json' },
         method: 'GET',

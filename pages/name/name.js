@@ -45,7 +45,7 @@ Page({
 
     // 登录服务器接口 
     wx.request({
-      url: 'http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=alter_name&app=10000&name=' + that.data.name + '&token=9632e6785f453856cce3c223bb366e16',//调用全局登录的token
+      url: 'https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=alter_name&app=10000&name=' + that.data.name + '&token=9632e6785f453856cce3c223bb366e16',//调用全局登录的token
       data: {
       },
       method: "POST",

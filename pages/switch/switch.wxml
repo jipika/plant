@@ -1,5 +1,13 @@
 <!--pages/news/news.wxml-->
-<van-nav-bar title="植物信息" safe-area-inset-top fixed placeholder border="{{false}}" />
+<mp-navigation-bar
+  title="切换植物"
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  back="{{true}}"
+  bindback="bindback"
+></mp-navigation-bar>
 
 <van-search
   value="{{ value }}"
@@ -23,9 +31,10 @@
   wx:if="{{!searchResultDatas.length}}"
 >植物人气榜Top10</van-divider>
 <!-- 人气榜 -->
-<view wx:if="{{!searchResultDatas.length}}" class="pantTop" wx:key="*this">
+<view wx:if="{{!searchResultDatas.length}}" class="pantTop">
   <view
     wx:for="{{pantTop}}"
+    wx:key="*this"
     class="box"
     bindtap="chooseSearchResultAction"
     data-id="{{pantTop[index].pid}}"
@@ -39,9 +48,14 @@
 <view wx:if="{{searchResultDatas.length > 0}}" class="search-content-body">
   <block wx:for="{{searchData}}" wx:key="*this">
     <view class="search-result-item">
-      <high-light class="result-item" sear="{{searchData[index]}}"></high-light>
+      <high-light
+        class="result-item"
+        sear="{{searchData[index]}}"
+        bindtap="chooseSearchResultAction"
+        data-id="{{searchResultDatas[index].pid}}"
+      ></high-light>
     </view>
-    <view class="tup" bindtap="chooseSearchResultAction" data-id="{{searchResultDatas[index].pid}}">
+    <view class="tup">
       <image class="img" src="{{item.image}}" lazy-load binderror bindload />
     </view>
   </block>

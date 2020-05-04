@@ -1,0 +1,65 @@
+.container .box {
+  margin-top: 50rpx;
+  padding: 0 68rpx;
+}
+
+.container .box .row {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 10rpx;
+  border-bottom: 1rpx solid #d0d0d0;
+  margin-top: 40rpx;
+}
+
+.container .box .row image {
+  width: 33rpx;
+  height: 46rpx;
+  margin-right: 20rpx;
+}
+
+.container .box .row image.code {
+  width: 40rpx;
+  height: 46rpx;
+}
+
+.container .box .row input {
+  flex: 1;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  color: #000000;
+}
+
+.container .box .row button {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 35rpx;
+  border: 1rpx solid #a0b8b2;
+  text-align: center;
+  font-size: 21rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #16b388;
+}
+
+.container .button {
+  margin: 0 auto;
+  width: 626rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: linear-gradient(-90deg, #38c6a0 0%, #6de0c3 100%);
+  border-radius: 42rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.imagesize {
+  display: flex;
+  justify-content: center;
+}
+.imagesize image {
+  width: 300rpx;
+  height: 300rpx;
+}

@@ -22,6 +22,7 @@
 .ding {
   position: absolute;
   left: 90px;
+  top: -2vh;
 }
 .xiang {
   position: relative;

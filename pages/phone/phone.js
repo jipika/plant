@@ -97,7 +97,7 @@ Page({
 
     // 获取验证码接口
     wx.request({
-      url: 'http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=yanzhengma&app=10000&type=seek&phone=' + this.data.tel,
+      url: 'https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=yanzhengma&app=10000&type=seek&phone=' + this.data.tel,
       data: {
 
       },
