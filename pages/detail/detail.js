@@ -4,14 +4,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: [
-      { score: '80%', name: '常春藤' },
-      { score: '7%', name: '洋常春藤' }
-    ],
+    detail: [],
     imgPath: '',
-    activeName: '',
+    activeName: 0,
     imgDetail: '',
-    pid: ''
+    imgDetail1: '',
+    imgDetail2: '',
+    imgDetail3: '',
+    show: true
   },
   goDetail() {
     wx.navigateTo({
@@ -22,73 +22,184 @@ Page({
     })
   },
   onChange(e) {
-    var that = this
-    console.log(e.currentTarget.dataset.name)
-    wx.request({
-      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${e.currentTarget.dataset.name}`,
-      data: {},
-      header: { 'content-type': 'application/json' },
-      method: 'post',
-      dataType: 'json',
-      responseType: 'text',
-      success: (res) => {
-        console.log(res.data.msg[0].pid)
-        that.setData({
-          pid: res.data.msg[0].pid
-        })
-      }
+    console.log(e.detail)
+    this.setData({
+      activeName: e.detail
     })
 
-    wx.request({
-      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${that.data.pid}`,
-      data: {},
-      header: { 'content-type': 'application/json' },
-      method: 'POST',
-      dataType: 'json',
-      success: (res) => {
-        console.log(res)
-        if (res.data.code == 200) {
-          console.log(res.data.msg[0])
-
-          getApp().globalData.detailPant = res.data.msg[0]
-          that.setData({
-            activeName: e.detail,
-            imgDetail: res.data.msg[0]
-          })
-        } else {
-          wx.showToast({
-            title: `没有该植物的信息哦~`,
-            icon: 'none',
-            image: '',
-            duration: 1500,
-            mask: false,
-            success: (result) => {
-              console.log(result)
-            }
-          })
-        }
-      }
-    })
+    if (e.detail == 0) {
+      this.setData({
+        imgDetail: this.data.imgDetail1
+      })
+    }
+    if (e.detail == 1) {
+      this.setData({
+        imgDetail: this.data.imgDetail2
+      })
+    }
+    if (e.detail == 2) {
+      this.setData({
+        imgDetail: this.data.imgDetail3
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const detail = getApp().globalData.detail
-    const imgPath = getApp().globalData.imgPath
-    console.log(detail)
-    this.setData({
-      detail,
-      imgPath
-    })
-    console.log(this.data.detail)
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {},
+  onReady: function () {
+    setTimeout(() => {
+      var that = this
+      const detail = getApp().globalData.detail
+      const imgPath = getApp().globalData.imgPath
+      console.log(detail)
+      if (detail.length == 1) {
+        that.setData({
+          show: false
+        })
+      }
+      this.setData({
+        detail,
+        imgPath
+      })
+      console.log(detail)
+
+      var name = detail[0].name
+      var name1 = detail[1].name
+      var name2 = detail[2].name
+
+      // 图片1
+      wx.request({
+        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${name}`,
+        data: {},
+        header: { 'content-type': 'application/json' },
+        method: 'post',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          if (res.data.code == 200) {
+            let pid = res.data.msg[0].pid
+            wx.request({
+              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
+              data: {},
+              header: { 'content-type': 'application/json' },
+              method: 'POST',
+              dataType: 'json',
+              success: (res) => {
+                console.log(res)
+                if (res.data.code == 200) {
+                  that.setData({
+                    imgDetail: res.data.msg[0],
+                    imgDetail1: res.data.msg[0],
+                    show: false
+                  })
+                  getApp().globalData.detailPant = res.data.msg[0]
+                } else {
+                  wx.showToast({
+                    title: `没有该植物的信息哦~`,
+                    icon: 'none',
+                    image: '',
+                    duration: 1500,
+                    mask: false,
+                    success: (result) => {
+                      console.log(result)
+                    }
+                  })
+                }
+              }
+            })
+          }
+        }
+      })
+      // 图片2
+      wx.request({
+        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${name1}`,
+        data: {},
+        header: { 'content-type': 'application/json' },
+        method: 'post',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          if (res.data.code == 200) {
+            var pid1 = res.data.msg[0].pid
+            wx.request({
+              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid1}`,
+              data: {},
+              header: { 'content-type': 'application/json' },
+              method: 'POST',
+              dataType: 'json',
+              success: (res) => {
+                console.log(res)
+                if (res.data.code == 200) {
+                  that.setData({
+                    imgDetail2: res.data.msg[0]
+                  })
+                  getApp().globalData.detailPant = res.data.msg[0]
+                } else {
+                  wx.showToast({
+                    title: `没有该植物的信息哦~`,
+                    icon: 'none',
+                    image: '',
+                    duration: 1500,
+                    mask: false,
+                    success: (result) => {
+                      console.log(result)
+                    }
+                  })
+                }
+              }
+            })
+          }
+        }
+      })
+      // 图片3
+      wx.request({
+        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shibie&app=10000&name=${name2}`,
+        data: {},
+        header: { 'content-type': 'application/json' },
+        method: 'post',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          if (res.data.code == 200) {
+            var pid2 = res.data.msg[0].pid
+            wx.request({
+              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid2}`,
+              data: {},
+              header: { 'content-type': 'application/json' },
+              method: 'POST',
+              dataType: 'json',
+              success: (res) => {
+                console.log(res)
+                if (res.data.code == 200) {
+                  that.setData({
+                    imgDetail3: res.data.msg[0]
+                  })
+                  getApp().globalData.detailPant = res.data.msg[0]
+                } else {
+                  wx.showToast({
+                    title: `没有该植物的信息哦~`,
+                    icon: 'none',
+                    image: '',
+                    duration: 1500,
+                    mask: false,
+                    success: (result) => {
+                      console.log(result)
+                    }
+                  })
+                }
+              }
+            })
+          }
+        }
+      })
+    }, 1000)
+  },
 
   /**
    * 生命周期函数--监听页面显示

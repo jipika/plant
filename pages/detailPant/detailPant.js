@@ -6,43 +6,52 @@ Page({
   data: {
     getList: '',
     height: '',
-    pid: ''
+    pid: '',
+    show: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    console.log(options.pid)
-    if (options.pid) {
-      wx.request({
-        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
-        data: {},
-        header: { 'content-type': 'application/json' },
-        method: 'GET',
-        dataType: 'json',
-        responseType: 'text',
-        success: (res) => {
-          console.log(res)
-          that.setData({
-            getList: res.data.msg[0]
-          })
-        }
-      })
-    }
-    const getList = getApp().globalData.detailPant
-    console.log(getList)
-
     this.setData({
-      getList
+      options
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {},
+  onReady: function () {
+    setTimeout(() => {
+      var options = this.data.options
+      var that = this
+      console.log(options.pid)
+      if (options.pid) {
+        wx.request({
+          url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
+          data: {},
+          header: { 'content-type': 'application/json' },
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: (res) => {
+            console.log(res)
+            that.setData({
+              getList: res.data.msg[0]
+            })
+          }
+        })
+      }
+      const getList = getApp().globalData.detailPant
+      console.log(getList)
+
+      this.setData({
+        getList,
+        show: false
+      })
+    }, 1000)
+  },
 
   /**
    * 生命周期函数--监听页面显示

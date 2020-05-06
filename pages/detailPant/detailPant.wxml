@@ -1,4 +1,13 @@
 <!--pages/detailPant/detailPant.wxml-->
+<!-- 遮盖层 -->
+<van-overlay show="{{ show }}">
+  <view class="wrapper">
+    <van-loading color="#1FA363" />
+    <view class="block" catch:tap="noop" />
+    <text class="ziti" selectable="false" space="false" decode="false">识别植物中...</text>
+  </view>
+</van-overlay>
+
 <component-tag-title title-text="植物详细信息" title-back="{{false}}"></component-tag-title>
 <view style="height: 96px"></view>
 <image class src="{{getList.image}}" style="width: 100%" lazy-load="false" binderror bindload />
@@ -48,4 +57,3 @@
   <view class="tr_l" wx:if="{{getList.jianjie}}">简介</view>
   <view class="tr_r" style="white-space:pre-wrap" wx:if="{{getList.jianjie}}">{{getList.jianjie}}</view>
 </view>
-

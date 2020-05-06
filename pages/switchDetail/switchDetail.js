@@ -10,7 +10,8 @@ Page({
     height: '',
     pid: '',
     iot: '',
-    inputIot: ''
+    inputIot: '',
+    show: ''
   },
   wancheng() {
     var pid = this.data.pid
@@ -18,7 +19,9 @@ Page({
     var inputIot = this.data.inputIot
     var image = this.data.getList.image
     var name = this.data.getList.name
-    var token = app.globalData.token
+    var token = wx.getStorageSync('token')
+    console.log(token)
+
     console.log(name)
     console.log(pid)
 
@@ -88,37 +91,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    console.log(options.pid)
-    console.log(options.iot)
-    console.log(options.inputIot)
     this.setData({
-      iot: options.iot,
-      pid: options.pid,
-      inputIot: options.inputIot
+      options
     })
-    if (options.pid) {
-      wx.request({
-        url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
-        data: {},
-        header: { 'content-type': 'application/json' },
-        method: 'GET',
-        dataType: 'json',
-        responseType: 'text',
-        success: (res) => {
-          console.log(res)
-          that.setData({
-            getList: res.data.msg[0]
-          })
-        }
-      })
-    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {},
+  onReady: function () {
+    setTimeout(() => {
+      var options = this.data.options
+      var that = this
+      console.log(options.pid)
+      console.log(options.iot)
+      console.log(options.inputIot)
+      this.setData({
+        iot: options.iot,
+        pid: options.pid,
+        inputIot: options.inputIot
+      })
+      if (options.pid) {
+        wx.request({
+          url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${options.pid}`,
+          data: {},
+          header: { 'content-type': 'application/json' },
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: (res) => {
+            console.log(res)
+            that.setData({
+              getList: res.data.msg[0],
+              show: false
+            })
+          }
+        })
+      }
+    }, 1000)
+  },
 
   /**
    * 生命周期函数--监听页面显示

@@ -55,6 +55,8 @@ Page({
   }),
   chooseSearchResultAction(e) {
     console.log(e.currentTarget.dataset.id)
+    console.log(inputIot)
+
     var iot = this.data.iot
     console.log(iot)
     var inputIot = this.data.inputIot

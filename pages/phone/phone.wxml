@@ -1,16 +1,27 @@
+<!-- 导航栏 -->
+<mp-navigation-bar
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  title="修改手机号"
+  back="{{true}}"
+  loading="{{loading}}"
+>
+</mp-navigation-bar>
 <view class="container">
   <view class="box">
     <view class="row">
-      <image src="../../images/sjh01.png"></image>
+      <image src="/pages/image/sjh01.png"></image>
       <input bindinput="inputTel" maxlength="11" name="account"  placeholder="请输入新手机号码"/>
     </view>
     <view class="row">
-      <image src="../../images/yzm01.png" class="code"></image>
+      <image src="/pages/image/yzm01.png" class="code"></image>
       <input bindinput="inputCode" name="account" maxlength="4" placeholder="请输入验证码"/>
-      <button plain bindtap="sendCode" disabled="{{smsFlag}}">{{sendTime}}</button>
+      <button class="fasong" plain bindtap="sendCode" disabled="{{smsFlag}}">{{sendTime}}</button>
     </view>
   </view>
-      <view style='margin-right:38rpx;margin-left:38rpx;margin-top:30px;background:#fff;display:flex;height:45px;align-items:center;justify-content:center' bindtap='saveClick'>
+      <view style='margin-right:38rpx;margin-left:38rpx;margin-top:30px;display:flex;height:45px;align-items:center;justify-content:center' bindtap='saveClick'>
   <view class="button" >修改手机号码</view>
 </view>
 </view>

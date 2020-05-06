@@ -1,34 +1,36 @@
 <!-- 导航栏 -->
-<mp-navigation-bar
-  show="{{true}}"
-  animated="{{true}}"
-  color="#A0A1A2"
-  background="#EDF1F2"
-  title="我的智能花匠"
-  back="{{false}}"
-  loading="{{loading}}"
-></mp-navigation-bar>
+<view hidden="{{show}}">
+  <mp-navigation-bar
+    show="{{true}}"
+    animated="{{true}}"
+    color="#A0A1A2"
+    background="#EDF1F2"
+    title="我的智能花匠"
+    back="{{false}}"
+    loading="{{loading}}"
+  ></mp-navigation-bar>
 
-<view class="imagesize">
-  <image src="/pages/image/txtx.png" class="in-image" />
-</view>
-
-<view class="container">
-  <view class="box">
-    <view class="row">
-      <image src="/pages/image/sjh01.png" />
-      <input bindinput="inputTel" maxlength="11" name="account" placeholder="请输入手机号码" />
-    </view>
-    <view class="row">
-      <image src="/pages/image/yzm01.png" class="code" />
-      <input bindinput="inputCode" name="account" maxlength="4" placeholder="请输入验证码" />
-      <button plain bindtap="sendCode" disabled="{{smsFlag}}">{{sendTime}}</button>
-    </view>
+  <view class="imagesize">
+    <image src="/pages/image/txtx.png" class="in-image" />
   </view>
-  <view
-    style="margin-right:38rpx;margin-left:38rpx;margin-top:30px;display:flex;height:45px;align-items:center;justify-content:center"
-    bindtap="saveClick"
-  >
-    <view class="button">登录</view>
+
+  <view class="container">
+    <view class="box">
+      <view class="row">
+        <image src="/pages/image/sjh01.png" />
+        <input bindinput="inputTel" maxlength="11" name="account" placeholder="请输入手机号码" />
+      </view>
+      <view class="row">
+        <image src="/pages/image/yzm01.png" class="code" />
+        <input bindinput="inputCode" name="account" maxlength="4" placeholder="请输入验证码" />
+        <button plain bindtap="sendCode" disabled="{{smsFlag}}">{{sendTime}}</button>
+      </view>
+    </view>
+    <view
+      style="margin-right:38rpx;margin-left:38rpx;margin-top:30px;display:flex;height:45px;align-items:center;justify-content:center"
+      bindtap="saveClick"
+    >
+      <view class="button">登录</view>
+    </view>
   </view>
 </view>

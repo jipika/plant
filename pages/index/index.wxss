@@ -43,6 +43,9 @@
   width: 40rpx;
   height: 40rpx;
 }
+.add2 {
+  margin-left: 10px;
+}
 .btnList {
   padding: 15px 24px !important;
 }
@@ -108,4 +111,7 @@
 .int1:hover {
   border: 1px solid #1aad19;
   box-shadow: 0 0 1px #1aad19;
+}
+.bg {
+  width: 100%;
 }

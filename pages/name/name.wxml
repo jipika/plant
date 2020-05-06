@@ -1,6 +1,16 @@
+<!-- 导航栏 -->
+<mp-navigation-bar
+  show="{{true}}"
+  animated="{{true}}"
+  color="#A0A1A2"
+  background="#EDF1F2"
+  title="修改昵称"
+  back="{{true}}"
+  loading="{{loading}}"
+></mp-navigation-bar>
 <view class="container">
   <view class="inp">
-    <input type="text" maxlength="10" bindinput="name" placeholder="请编辑昵称（0/10）"/>
+    <input type="text" maxlength="10" bindinput="name" placeholder="请编辑昵称（0/10）" />
   </view>
   <view class="button" bindtap="saveClick">保存昵称</view>
 </view>

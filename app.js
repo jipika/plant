@@ -10,15 +10,24 @@ App({
 
     this.globalData.rect = rect.top
 
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
+      timeout: 10000,
       success: (res) => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res)
+        wx.request({
+          url: `http://qingchun.hongquelin.com/zhinenghuajiang/test.php`,
+          data: { code: res.code },
+          header: { 'content-type': 'application/json' },
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: (res) => {
+            console.log(res)
+            wx.setStorageSync('openid', res.data.openid)
+            wx.setStorageSync('session_key', res.data.session_key)
+          }
+        })
       }
     })
     // 获取用户信息

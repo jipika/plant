@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "修改手机号",
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-navigation-bar": "/miniprogram_npm/weui-miniprogram/navigation-bar/navigation-bar"
+  }
 }

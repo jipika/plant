@@ -23,10 +23,12 @@
   wx:if="{{!searchResultDatas.length}}"
 >植物人气榜Top10</van-divider>
 <!-- 人气榜 -->
-<view wx:if="{{!searchResultDatas.length}}" class="pantTop" wx:key="*this">
+<view wx:if="{{searchResultDatas.length == 0}}" class="pantTop">
   <view
     wx:for="{{pantTop}}"
+    wx:key="*this"
     class="box"
+    hover-class="box1"
     bindtap="chooseSearchResultAction"
     data-id="{{pantTop[index].pid}}"
   >
@@ -34,14 +36,33 @@
     <text class selectable="false" space="false" decode="false">{{item.name}}</text>
   </view>
 </view>
+<!-- 没有搜索内容 -->
+<image
+  class="bg"
+  wx:if="{{searchResultDatas === 0}}"
+  src="/pages/image/wuzhiwu.png"
+  lazy-load="false"
+  binderror
+  bindload
+/>
 
 <!-- 搜索时内容 -->
 <view wx:if="{{searchResultDatas.length > 0}}" class="search-content-body">
   <block wx:for="{{searchData}}" wx:key="*this">
     <view class="search-result-item">
-      <high-light class="result-item" sear="{{searchData[index]}}"></high-light>
+      <high-light
+        bindtap="chooseSearchResultAction"
+        class="result-item"
+        sear="{{searchData[index]}}"
+        data-id="{{searchResultDatas[index].pid}}"
+      ></high-light>
     </view>
-    <view class="tup" bindtap="chooseSearchResultAction" data-id="{{searchResultDatas[index].pid}}">
+    <view
+      class="tup"
+      hover-class="tup1"
+      bindtap="chooseSearchResultAction"
+      data-id="{{searchResultDatas[index].pid}}"
+    >
       <image class="img" src="{{item.image}}" lazy-load binderror bindload />
     </view>
   </block>

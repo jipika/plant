@@ -18,15 +18,26 @@
     binderror
     bindload
   />
+  <image
+    bindtap="scanning"
+    class="add add2"
+    src="/pages/image/saomiao.svg"
+    slot="left"
+    lazy-load="false"
+    binderror
+    bindload
+  />
 </mp-navigation-bar>
 <!-- 设备栏 -->
 <view
+  wx:for="{{equipment}}"
+  wx:key="index"
   class="page"
   data-id="{{item.iot}}"
   data-pid="{{item.pid}}"
   data-uid="{{item.uid}}"
-  wx:for="{{equipment}}"
-  wx:key="index"
+  data-name="{{item.name}}"
+  data-days="{{item.days}}"
   bindtap="goSurvey"
 >
   <view class="page__bd">
@@ -48,12 +59,7 @@
             />
             <view class="minBox">
               <text class="name" selectable="false" space="false" decode="false">{{item.name}}</text>
-              <text
-                class="time"
-                selectable="false"
-                space="false"
-                decode="false"
-              >更新时间:{{item.shijian}}</text>
+              <text class="time" selectable="false" space="false" decode="false">已检测:{{item.days}}天</text>
             </view>
             <image src="{{item.image}}" class="rightImg" lazy-load="false" binderror bindload />
           </button>
@@ -62,6 +68,17 @@
     </view>
   </view>
 </view>
+
+<!-- 默认背景 -->
+<image
+  class="bg"
+  wx:if="{{equipment.length == 0}}"
+  src="/pages/image/wushebei.png"
+  mode="aspectFit|aspectFill|widthFix"
+  lazy-load="false"
+  binderror
+  bindload
+/>
 
 <!-- 修改弹框输入 -->
 <view class="zn-uploadimg">
@@ -81,12 +98,19 @@
 <view class="zn-uploadimg">
   <modal
     hidden="{{!showTwo}}"
-    title="输入设备新名称"
+    title="请输入设备编号"
     confirm-text="确定"
     cancel-text="取消"
     bindcancel="onCancel"
     bindconfirm="iotPut"
   >
-    <input type="text" placeholder="请输入内容" auto-focus focus bindinput="bindIotInput" />
+    <input
+      type="text"
+      value="{{inputIot}}"
+      placeholder="请输入内容"
+      auto-focus
+      focus
+      bindinput="bindIotInput"
+    />
   </modal>
 </view>

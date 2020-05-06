@@ -9,13 +9,53 @@ Page({
     newPassword: '',
     sendTime: '发送验证码',
     sendColor: '#363636',
-    snsMsgWait: 60
+    snsMsgWait: 60,
+    openid: '',
+    session_key: '',
+    show: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    //登录获取code
+    var that = this
+
+    var openid = wx.getStorageSync('openid')
+    console.log(openid)
+
+    wx.request({
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=wx_login&app=10000&openid=${openid}`, //获取微信openid唯一ID登录这里用测试的
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        wx.setStorageSync('token', res.data.msg.token)
+        var jsonstr = JSON.stringify(res.data.msg)
+
+        if (jsonstr.indexOf('token') >= 0) {
+          //进入主程序
+          wx.switchTab({
+            url: '/pages/index/index',
+            success: (res) => {
+              console.log(res)
+            }
+          })
+
+          console.log(res.data.msg.info.name) //从数据库读取获取到的微信名称
+          console.log(res.data.msg.token) //用户token数据
+          console.log(res.data.msg.info.pic) //用户头像地址
+        } else {
+          //进入注册界面
+          that.setData({
+            show: false
+          })
+        }
+      }
+    })
+  },
   inputTel: function (e) {
     this.setData({
       tel: e.detail.value
@@ -40,31 +80,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   //判断微信是否注册,没注册显示注册界面。否则直接进入程序
-  onShow: function () {
-    //登录获取code
-
-    wx.request({
-      url:
-        'http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=wx_login&app=10000&openid=1234', //获取微信openid唯一ID登录这里用测试的
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data.msg)
-
-        var jsonstr = JSON.stringify(res.data.msg)
-
-        if (jsonstr.indexOf('token') >= 0) {
-          //进入主程序
-          console.log(res.data.msg.info.name) //从数据库读取获取到的微信名称
-          console.log(res.data.msg.token) //用户token数据
-          console.log(res.data.msg.info.pic) //用户头像地址
-        } else {
-          //进入注册界面
-        }
-      }
-    })
-  },
+  onShow: function () {},
 
   // 获取验证码
   sendCode: function () {
@@ -113,7 +129,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        //console.log(res);
+        console.log(res)
         that.toast(res.data.msg)
       }
     })
@@ -121,6 +137,9 @@ Page({
 
   // 提交信息
   saveClick: function () {
+    var openid = wx.getStorageSync('openid')
+    console.log(openid)
+
     var that = this
     if (that.data.tel == '') {
       that.toast('手机号不可为空')
@@ -130,15 +149,15 @@ Page({
       that.toast('验证码不可为空')
       return
     }
+    console.log(that.data.tel)
+    console.log(that.data.code)
 
     // 登录服务器接口
     wx.request({
-      url:
-        'http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shouji_reg&app=10000&phone=' +
-        this.data.tel +
-        '&crc=' +
-        this.data.code +
-        '&openid=获取到的微信openid&name=获取到的微信昵称&images=微信头像地址',
+      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=shouji_reg
+      &app=10000&openid=${openid}
+      &phone=${that.data.tel}&crc=${that.data.code}
+      `,
       data: {},
       method: 'POST',
       header: {
@@ -146,6 +165,7 @@ Page({
       },
       success(res) {
         console.log(res.data.msg)
+        wx.setStorageSync('token', res.data.msg.token)
 
         var jsonstr = JSON.stringify(res.data.msg)
 
@@ -153,7 +173,12 @@ Page({
           console.log(res.data.msg.info.name) //从数据库读取获取到的微信名称
           console.log(res.data.msg.token) //用户token数据
           console.log(res.data.msg.info.pic) //用户头像地址
-
+          wx.switchTab({
+            url: '/pages/index/index',
+            success: (res) => {
+              console.log(res)
+            }
+          })
           that.toast('登录成功') //成功自动进入页面
         } else {
           that.toast(res.data.msg)

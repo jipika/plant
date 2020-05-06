@@ -1,10 +1,19 @@
 <!--pages/detail/detail.wxml-->
+<!-- 遮盖层 -->
+<van-overlay show="{{ show }}">
+  <view class="wrapper">
+    <van-loading color="#1FA363" />
+    <view class="block" catch:tap="noop" />
+    <text class="ziti" selectable="false" space="false" decode="false">识别植物中...</text>
+  </view>
+</van-overlay>
+
 <component-tag-title title-text="植物识别" title-up="{{true}}" title-back="{{false}}"></component-tag-title>
 <view style="height: 96px"></view>
 <view>
   <image class="a" src="{{imgPath}}" style="width: 100%" wx:if="{{imgPath}}" />
 </view>
-<view class="maxBox">
+<view class="maxBox" wx:if="{{detail.length !== 1}}">
   <van-collapse
     wx:for="{{detail}}"
     wx:for-item="item"
@@ -28,7 +37,7 @@
         decode="false"
       >{{item.baike_info.description ? item.baike_info.description : '暂时没有植物简介哦~'}}</text>
       <view class="imgBox">
-        <view class="hr" bindtap="goDetail">
+        <view class="hr" bindtap="goDetail" wx:if="{{imgDetail.image}}">
           <van-image
             round
             width="5rem"
@@ -44,3 +53,11 @@
     </van-collapse-item>
   </van-collapse>
 </view>
+<image
+  class="bg"
+  wx:if="{{detail.length === 1}}"
+  src="/pages/image/feizhiwu.png"
+  lazy-load="false"
+  binderror
+  bindload
+/>

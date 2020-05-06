@@ -87,6 +87,12 @@
 					"pathName": "pages/survey/survey",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/logs/logs",
+					"pathName": "pages/logs/logs",
+					"scene": null
 				}
 			]
 		}

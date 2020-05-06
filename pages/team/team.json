@@ -1,6 +1,6 @@
-
-
 {
   "navigationBarTitleText": "个人信息",
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-navigation-bar": "/miniprogram_npm/weui-miniprogram/navigation-bar/navigation-bar"
+  }
 }

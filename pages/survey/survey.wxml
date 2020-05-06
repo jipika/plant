@@ -1,4 +1,14 @@
 <!--pages/survey/survey.wxml-->
+
+<!-- 遮盖层 -->
+<van-overlay show="{{ show }}">
+  <view class="wrapper">
+    <van-loading color="#1FA363" />
+    <view class="block" catch:tap="noop" />
+    <text class="ziti" selectable="false" space="false" decode="false">加载中...</text>
+  </view>
+</van-overlay>
+
 <mp-navigation-bar
   show="{{true}}"
   animated="{{true}}"
@@ -10,15 +20,19 @@
 <!-- 用户状态栏 -->
 <view class="status">
   <view class="leftStatus">
-    <text
-      class
-      selectable="false"
-      space="false"
-      decode="false"
-      style="color: #686786;"
-    >{{detail.name}}</text>
+    <view>
+      <text
+        class
+        selectable="false"
+        space="false"
+        decode="false"
+        style="color: #686786; font-size: 18px;"
+      >{{name}}</text>
+      <text class="shijian" selectable="false" space="false" decode="false">{{time}}</text>
+    </view>
+
     <image class="lian" src="/pages/image/lianjie.svg" lazy-load="false" binderror bindload />
-    <text class selectable="false" space="false" decode="false">已监听177天</text>
+    <text class selectable="false" space="false" decode="false">已监听{{days}}天</text>
   </view>
   <view class="rightStatus">
     <image class="rightImg" src mode="aspectFit" lazy-load="false" binderror bindload />
@@ -38,12 +52,26 @@
 
 <!-- 重新连接 -->
 <view class="again">
-  <view class="leftAgain">
+  <view class="leftAgain" wx:if="{{surveyList[0].data.iot_sensor_status  === '在线'}}">
+    <image class="lian" src="/pages/image/zaixian.svg" lazy-load="false" binderror bindload />
+    <text
+      class
+      selectable="false"
+      space="false"
+      decode="false"
+    >{{surveyList[0].data.iot_sensor_status}}</text>
+  </view>
+  <view wx:else class="leftAgain">
     <image class="lian" src="/pages/image/duankai.svg" lazy-load="false" binderror bindload />
-    <text class selectable="false" space="false" decode="false">连接失败</text>
+    <text
+      class
+      selectable="false"
+      space="false"
+      decode="false"
+    >{{surveyList[0].data.iot_sensor_status}}</text>
   </view>
   <view class="rightAgain">
-    <text class selectable="false" space="false" decode="false">重新连接</text>
+    <text class hidden="{{true}}" selectable="false" space="false" decode="false">重新连接</text>
     <image
       class="lian1"
       src="/pages/image/wenhao.svg"
@@ -64,7 +92,12 @@
       <text class selectable="false" space="false" decode="false">Ambient Humidity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">{{surveyList[1].sdata}}</text>
+      <text
+        class="{{surveyList[1].sdata < detail.shidu_min ? 'iconfont icon-zheng-triangle red' : '' }} {{surveyList[1].sdata > detail.shidu_max ? 'iconfont icon-dao-triangle red' : '' }}"
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{surveyList[1].sdata}}</text>
       <text
         class
         selectable="false"
@@ -92,7 +125,12 @@
       <text class selectable="false" space="false" decode="false">Temperature</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">{{surveyList[0].sdata}}</text>
+      <text
+        class="{{surveyList[0].sdata < detail.wendu_min ? 'iconfont icon-zheng-triangle red' : '' }} {{surveyList[0].sdata > detail.wendu_max ? 'iconfont icon-dao-triangle red' : '' }}"
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{surveyList[0].sdata}}</text>
       <text
         class
         selectable="false"
@@ -116,7 +154,12 @@
       <text class selectable="false" space="false" decode="false">Light Intensity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">{{surveyList[2].sdata}}</text>
+      <text
+        class="{{surveyList[2].sdata < detail.guangzhao_min ? 'iconfont icon-zheng-triangle red' : '' }} {{surveyList[2].sdata > detail.guangzhao_max ? 'iconfont icon-dao-triangle red' : '' }}"
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{surveyList[2].sdata}}</text>
       <text
         class
         selectable="false"
@@ -140,7 +183,12 @@
       <text class selectable="false" space="false" decode="false">Soil Humidity</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">{{surveyList[3].sdata}}</text>
+      <text
+        class="{{surveyList[3].sdata < detail.turangshidu_min ? 'iconfont icon-zheng-triangle red' : '' }} {{surveyList[3].sdata > detail.turangshidu_max ? 'iconfont icon-dao-triangle red' : '' }}"
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{surveyList[3].sdata}}</text>
       <text
         class
         selectable="false"
@@ -164,7 +212,12 @@
       <text class selectable="false" space="false" decode="false">Soil Nutrient</text>
     </view>
     <view class="rightBox">
-      <text class selectable="false" space="false" decode="false">{{surveyList[4].sdata}}</text>
+      <text
+        class="{{surveyList[4].sdata < detail.turangfeili_min ? 'iconfont icon-zheng-triangle red' : '' }} {{surveyList[4].sdata > detail.turangfeili_max ? 'iconfont icon-dao-triangle red' : '' }}"
+        selectable="false"
+        space="false"
+        decode="false"
+      >{{surveyList[4].sdata}}</text>
       <text
         class
         selectable="false"

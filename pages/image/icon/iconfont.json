@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5027359",
+      "name": "正三角形",
+      "font_class": "dao-triangle",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "7762449",
+      "name": "正三角形",
+      "font_class": "zheng-triangle",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "3248560",
       "name": "感叹号",
       "font_class": "gantanhao",

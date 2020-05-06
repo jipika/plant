@@ -5,17 +5,33 @@ const app = getApp()
 Page({
   data: {
     slideButtons: '',
-    token: '5a219217b508118ce2f9f809ff09cde5',
     equipment: '',
     show: false,
     inputIot: '',
     iot: '',
     loading: '',
-    showTwo: false
+    showTwo: false,
+    loadProgress: 0
   },
   confirm: function () {
     this.setData({
       showTwo: false
+    })
+  },
+  // 扫描添加设备
+  scanning() {
+    var that = this
+    wx.scanCode({
+      onlyFromCamera: false,
+      scanType: ['qrCode'],
+      success: (res) => {
+        console.log(res)
+        that.setData({
+          inputIot: res.result
+        })
+        that.iotPut()
+        console.log(this.data.inputIot)
+      }
     })
   },
   // 添加设备
@@ -25,11 +41,40 @@ Page({
     })
   },
   iotPut() {
+    this.setData({
+      showTwo: false
+    })
+
     var inputIot = this.data.inputIot
-    wx.navigateTo({
-      url: `/pages/switch/switch?inputIot=${inputIot}`,
+    console.log(inputIot)
+    wx.request({
+      url: `http://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=iot_find
+      &iot=${inputIot}&app=10000
+      `,
+      data: {},
+      header: { 'content-type': 'application/json' },
+      method: 'post',
+      dataType: 'json',
+      responseType: 'text',
       success: (res) => {
         console.log(res)
+        if (res.data.code == 200) {
+          wx.navigateTo({
+            url: `/pages/switch/switch?inputIot=${inputIot}`,
+            success: (res) => {}
+          })
+        } else {
+          wx.showToast({
+            title: `${res.data.msg}`,
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+            success: (res) => {
+              console.log(res)
+            }
+          })
+        }
       }
     })
   },
@@ -39,10 +84,12 @@ Page({
     var iot = e.currentTarget.dataset.id
     var pid = e.currentTarget.dataset.pid
     var uid = e.currentTarget.dataset.uid
+    var name = e.currentTarget.dataset.name
+    var days = e.currentTarget.dataset.days
     console.log(pid)
 
     wx.navigateTo({
-      url: `/pages/survey/survey?iot=${iot}&pid=${pid}&uid=${uid}`
+      url: `/pages/survey/survey?iot=${iot}&pid=${pid}&uid=${uid}&name=${name}&days=${days}`
     })
   },
   // 获得键盘内容
@@ -58,7 +105,8 @@ Page({
     })
   },
   namePut() {
-    var token = this.data.token
+    var token = wx.getStorageSync('token')
+
     var value = this.data.inputValue
     console.log(value)
     var that = this
@@ -93,13 +141,14 @@ Page({
   onCancel() {
     this.setData({
       show: false,
-      showTwo: false
+      showTwo: false,
+      inputIot: null
     })
     console.log(this.data.show)
   },
   slideButtonTap(e) {
     var that = this
-    var token = this.data.token
+    var token = wx.getStorageSync('koken')
     var iot = e.currentTarget.dataset.iot
     this.setData({
       iot
@@ -169,15 +218,19 @@ Page({
 
   getList() {
     var that = this
+    var token = wx.getStorageSync('token')
+
+    console.log('token', token)
+
     wx.request({
-      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=geren_liebiao&app=10000&token=${that.data.token}`,
+      url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=geren_liebiao&app=10000&token=${token}`,
       data: {},
       header: { 'content-type': 'application/json' },
       method: 'POST',
       dataType: 'json',
       responseType: 'text',
       success: (res) => {
-        console.log(res.data.msg)
+        console.log(res.data)
 
         wx.stopPullDownRefresh({
           success: (res) => {
@@ -193,8 +246,6 @@ Page({
     })
   },
   onLoad: function () {
-    console.log(this.data.token)
-    app.globalData.token = this.data.token
     this.setData({
       slideButtons: [
         {
@@ -213,5 +264,15 @@ Page({
   },
   onShow() {
     this.getList()
+  },
+  loadModal() {
+    this.setData({
+      loadModal: true
+    })
+    setTimeout(() => {
+      this.setData({
+        loadModal: false
+      })
+    }, 2000)
   }
 })

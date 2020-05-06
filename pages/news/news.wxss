@@ -52,3 +52,23 @@
 .van-nav-bar__title {
   color: #a0a1a2 !important;
 }
+.tup1 {
+  transition: all 0.3s linear;
+  background-color: #dedede;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}
+.box1 {
+  transition: all 0.3s linear;
+  background-color: #dedede;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}
+.bg {
+  margin-top: 40px;
+  width: 100%;
+}

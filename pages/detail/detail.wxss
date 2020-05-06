@@ -20,3 +20,34 @@
 .van-cell {
   background-color: #edf1f2 !important;
 }
+.bg {
+  width: 100%;
+}
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+}
+.van-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.ziti {
+  font-size: 12px;
+  color: #a0a1a2;
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+}

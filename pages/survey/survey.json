@@ -5,6 +5,8 @@
     "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
     "mp-slideview": "/miniprogram_npm/weui-miniprogram/slideview/slideview",
     "mp-icon": "/miniprogram_npm/weui-miniprogram/icon/icon",
-    "van-divider": "@vant/weapp/divider/index"
+    "van-divider": "@vant/weapp/divider/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-loading": "@vant/weapp/loading/index"
   }
 }

@@ -63,3 +63,7 @@
   width: 300rpx;
   height: 300rpx;
 }
+.btn1 {
+  width: 626rpx !important;
+  background-color: #edf1f2;
+}

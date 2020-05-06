@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+@import '/pages/image/icon/iconfont.wxss';
 .containers {
   height: 100%;
   display: flex;
@@ -12,4 +13,6 @@
 
 page {
   background-color: #edf1f2;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
 }

@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "个人昵称",
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-navigation-bar": "/miniprogram_npm/weui-miniprogram/navigation-bar/navigation-bar"
+  }
 }

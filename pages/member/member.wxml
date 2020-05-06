@@ -1,23 +1,12 @@
-
-<mp-navigation-bar
-  show="{{true}}"
-  animated="{{true}}"
-  color="#A0A1A2"
-  background="#EDF1F2"
-  title="我的智能花匠"
-  back="{{false}}"
-></mp-navigation-bar>
-
-
 <view class="container">
   <view class="my-details">
     <image class="img" src="/pages/image/bg.png" />
-    <view class="details" bindtap="pageTo" data-url="/pages/team/team">
+    <view class="details" bindtap="myTeam">
       <view class="left">
-        <image class="head" src="/pages/image/txtx.png" />
+        <image class="head" src="{{memberList.pic}}" />
         <view class="name">
-          <view>晓龙</view>
-          <view>158*****77</view>
+          <view>{{memberList.name}}</view>
+          <view>{{memberList.user}}</view>
         </view>
       </view>
       <image class="arrIcon" src="/pages/image/xy08.png" />

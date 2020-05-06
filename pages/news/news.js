@@ -43,11 +43,18 @@ Page({
         })
         console.log(searchData)
         console.log(res.data.msg)
-
-        that.setData({
-          searchData,
-          searchResultDatas: res.data.msg
-        })
+        if (res.data.msg.length > 0) {
+          that.setData({
+            searchData,
+            searchResultDatas: res.data.msg
+          })
+        } else {
+          that.setData({
+            searchData,
+            searchResultDatas: 0
+          })
+        }
+        console.log(that.data.searchResultDatas)
       }
     })
   }),
