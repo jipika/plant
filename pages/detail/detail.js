@@ -11,11 +11,16 @@ Page({
     imgDetail1: '',
     imgDetail2: '',
     imgDetail3: '',
-    show: true
+    show: true,
+    pid: '',
+    pid1: '',
+    pid2: '',
+    pid3: ''
   },
   goDetail() {
+    var pid = this.data.pid
     wx.navigateTo({
-      url: '../detailPant/detailPant',
+      url: `../detailPant/detailPant?pid=${pid}`,
       success: (result) => {
         console.log(result)
       }
@@ -29,17 +34,20 @@ Page({
 
     if (e.detail == 0) {
       this.setData({
-        imgDetail: this.data.imgDetail1
+        imgDetail: this.data.imgDetail1,
+        pid: this.data.pid1
       })
     }
     if (e.detail == 1) {
       this.setData({
-        imgDetail: this.data.imgDetail2
+        imgDetail: this.data.imgDetail2,
+        pid: this.data.pid2
       })
     }
     if (e.detail == 2) {
       this.setData({
-        imgDetail: this.data.imgDetail3
+        imgDetail: this.data.imgDetail3,
+        pid: this.data.pid3
       })
     }
   },
@@ -82,35 +90,25 @@ Page({
         dataType: 'json',
         responseType: 'text',
         success: (res) => {
+          console.log(res.data.msg)
+          that.setData({
+            imgDetail: res.data.msg[0].image,
+            imgDetail1: res.data.msg[0].image,
+            pid: res.data.msg[0].pid,
+
+            pid1: res.data.msg[0].pid,
+            show: false
+          })
           if (res.data.code == 200) {
-            let pid = res.data.msg[0].pid
-            wx.request({
-              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid}`,
-              data: {},
-              header: { 'content-type': 'application/json' },
-              method: 'POST',
-              dataType: 'json',
-              success: (res) => {
-                console.log(res)
-                if (res.data.code == 200) {
-                  that.setData({
-                    imgDetail: res.data.msg[0],
-                    imgDetail1: res.data.msg[0],
-                    show: false
-                  })
-                  getApp().globalData.detailPant = res.data.msg[0]
-                } else {
-                  wx.showToast({
-                    title: `没有该植物的信息哦~`,
-                    icon: 'none',
-                    image: '',
-                    duration: 1500,
-                    mask: false,
-                    success: (result) => {
-                      console.log(result)
-                    }
-                  })
-                }
+          } else {
+            wx.showToast({
+              title: `没有该植物的信息哦~`,
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result) => {
+                console.log(result)
               }
             })
           }
@@ -125,33 +123,23 @@ Page({
         dataType: 'json',
         responseType: 'text',
         success: (res) => {
+          console.log(res)
+          that.setData({
+            imgDetail2: res.data.msg[0].image,
+
+            pid2: res.data.msg[0].pid,
+            show: false
+          })
           if (res.data.code == 200) {
-            var pid1 = res.data.msg[0].pid
-            wx.request({
-              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid1}`,
-              data: {},
-              header: { 'content-type': 'application/json' },
-              method: 'POST',
-              dataType: 'json',
-              success: (res) => {
-                console.log(res)
-                if (res.data.code == 200) {
-                  that.setData({
-                    imgDetail2: res.data.msg[0]
-                  })
-                  getApp().globalData.detailPant = res.data.msg[0]
-                } else {
-                  wx.showToast({
-                    title: `没有该植物的信息哦~`,
-                    icon: 'none',
-                    image: '',
-                    duration: 1500,
-                    mask: false,
-                    success: (result) => {
-                      console.log(result)
-                    }
-                  })
-                }
+          } else {
+            wx.showToast({
+              title: `没有该植物的信息哦~`,
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result) => {
+                console.log(result)
               }
             })
           }
@@ -166,33 +154,22 @@ Page({
         dataType: 'json',
         responseType: 'text',
         success: (res) => {
+          console.log(res)
+          that.setData({
+            imgDetail3: res.data.msg[0].image,
+            pid3: res.data.msg[0].pid,
+            show: false
+          })
           if (res.data.code == 200) {
-            var pid2 = res.data.msg[0].pid
-            wx.request({
-              url: `https://qingchun.hongquelin.com/zhinenghuajiang/api.php?act=zhiwuxiangqing&app=10000&pid=${pid2}`,
-              data: {},
-              header: { 'content-type': 'application/json' },
-              method: 'POST',
-              dataType: 'json',
-              success: (res) => {
-                console.log(res)
-                if (res.data.code == 200) {
-                  that.setData({
-                    imgDetail3: res.data.msg[0]
-                  })
-                  getApp().globalData.detailPant = res.data.msg[0]
-                } else {
-                  wx.showToast({
-                    title: `没有该植物的信息哦~`,
-                    icon: 'none',
-                    image: '',
-                    duration: 1500,
-                    mask: false,
-                    success: (result) => {
-                      console.log(result)
-                    }
-                  })
-                }
+          } else {
+            wx.showToast({
+              title: `没有该植物的信息哦~`,
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result) => {
+                console.log(result)
               }
             })
           }

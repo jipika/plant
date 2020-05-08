@@ -37,12 +37,12 @@
         decode="false"
       >{{item.baike_info.description ? item.baike_info.description : '暂时没有植物简介哦~'}}</text>
       <view class="imgBox">
-        <view class="hr" bindtap="goDetail" wx:if="{{imgDetail.image}}">
+        <view class="hr" bindtap="goDetail" wx:if="{{imgDetail}}">
           <van-image
             round
             width="5rem"
             height="5rem"
-            src="{{imgDetail.image}}"
+            src="{{imgDetail}}"
             lazy-load="true"
             binderror
             bindload

@@ -43,11 +43,8 @@ Page({
           }
         })
       }
-      const getList = getApp().globalData.detailPant
-      console.log(getList)
 
       this.setData({
-        getList,
         show: false
       })
     }, 1000)
@@ -61,12 +58,20 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {},
+  onHide: function () {
+    this.setData({
+      getList: null
+    })
+  },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {},
+  onUnload: function () {
+    this.setData({
+      getList: null
+    })
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
